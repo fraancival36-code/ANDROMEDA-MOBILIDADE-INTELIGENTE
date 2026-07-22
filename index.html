@@ -1,0 +1,136 @@
+AI transportes app
+
+
+
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Mobilidade Inteligente | Andrômeda</title>
+    <meta name="theme-color" content="#00BFFF">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {margin: 0; padding: 0; box-sizing: border-box;}
+        html, body {
+            width: 100%; min-height: 100vh;
+            background: #050B18 !important;
+            color: #E0E7FF !important;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+        .fundo {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: 
+                radial-gradient(circle at 50% 20%, rgba(0,191,255,0.12) 0%, transparent 55%),
+                radial-gradient(circle at 50% 80%, rgba(0,150,136,0.1) 0%, transparent 55%);
+            z-index: -1;
+        }
+        main {
+            width: 100%; min-height: 100vh;
+            padding: 15% 6% 8% 6%;
+            display: flex; flex-direction: column;
+            justify-content: center; align-items: center;
+            text-align: center;
+        }
+
+        /* --- CABEÇALHO --- */
+        .logo-andromeda {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 18px;
+            font-weight: 600;
+            color: #00BFFF;
+            margin-bottom: 6px;
+            letter-spacing: 2px;
+        }
+        .titulo-principal {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: #FFFFFF;
+            margin-bottom: 10px;
+        }
+        .icones-servicos {
+            font-size: 14px;
+            color: #96BCFF;
+            margin-bottom: 12px;
+            font-weight: 500;
+        }
+        .slogan {
+            font-size: 16px;
+            color: #C0D8FF;
+            margin-bottom: 45px;
+            line-height: 1.5;
+            font-weight: 500;
+        }
+
+        /* --- BOTÕES — TODOS MESMO TAMANHO --- */
+        .grupo-botoes {width: 100%; display: flex; flex-direction: column; gap: 14px; margin-bottom: 10px;}
+        .botao {
+            width: 100%; padding: 17px 12px;
+            border: none; border-radius: 16px;
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.15s;
+        }
+        .botao:active {transform: scale(0.97);}
+
+        .cliente {background: linear-gradient(135deg, #00BFFF, #0080FF); color: white;}
+        .parceiro {background: linear-gradient(135deg, #28C76F, #00994D); color: white;}
+        .empresa {background: linear-gradient(135deg, #FFB700, #FF8C00); color: #1A1A2E;}
+        .entrar {border: 2px solid #00BFFF; background: transparent; color: #00BFFF;}
+        .entrar:active {background: rgba(0,191,255,0.08);}
+
+        .texto-login {font-size: 13px; color: #90A4D0; margin-top: 10px; margin-bottom: 35px;}
+
+        /* --- LINKS E RODAPÉ --- */
+        .links-uteis {
+            width: 100%;
+            display: flex; flex-direction: column; gap: 8px;
+            font-size: 12px; color: #60729B;
+            margin-bottom: 30px;
+        }
+        .links-uteis span {text-decoration: underline; cursor: pointer;}
+
+        .rodape {
+            font-size: 11px; color: #505E80;
+            font-weight: 500; line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <div class="fundo"></div>
+
+    <main>
+        <div class="logo-andromeda">✦ ANDRÔMEDA</div>
+        <div class="titulo-principal">MOBILIDADE INTELIGENTE</div>
+        
+        <div class="icones-servicos">🚗 Corridas • 📦 Entregas • 🔧 Serviços Automotivos</div>
+        
+        <div class="slogan">Transporte, entregas e serviços automotivos em um único aplicativo</div>
+
+        <div class="grupo-botoes">
+            <div class="botao cliente">👤 CRIAR CONTA — CLIENTE</div>
+            <div class="botao parceiro">🚕 CRIAR CONTA — PARCEIRO</div>
+            <div class="botao empresa">🏢 CRIAR CONTA — EMPRESA</div>
+            <div class="botao entrar">➡️ ENTRAR</div>
+        </div>
+
+        <div class="texto-login">Já possui uma conta? Faça login.</div>
+
+        <div class="links-uteis">
+            <span>Esqueci minha senha</span>
+            <span>Política de Privacidade e Termos de Uso</span>
+        </div>
+
+        <div class="rodape">
+            Projeto idealizado por Francival Alves Farias<br>
+            Todos os dados protegidos por criptografia
+        </div>
+    </main>
+</body>
+</html>
+
