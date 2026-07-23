@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Segurança e Conduta | Andrômeda</title>
+    <meta name="theme-color" content="#050B18">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@500;600&display=swap" rel="stylesheet">
+    <style>
+        * {margin: 0; padding: 0; box-sizing: border-box;}
+        html, body {
+            width: 100%; min-height: 100vh;
+            background: #050B18;
+            color: #C5D2F0;
+            font-family: 'Inter', sans-serif;
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+        .fundo {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at 50% 10%, rgba(0,191,255,0.08) 0%, transparent 60%);
+            z-index: -1;
+        }
+        main {
+            max-width: 480px;
+            margin: 0 auto;
+            padding: 8% 5% 12% 5%;
+        }
+        .cabecalho {text-align: center; margin-bottom: 30px;}
+        .logo {font-family: 'Orbitron', sans-serif; font-size: 22px; color: #00BFFF; margin-bottom: 5px;}
+        .titulo {font-size: 20px; font-weight: 700; color: #E0F7FF; margin-bottom: 8px;}
+        .subtitulo {font-size: 14px; color: #96BCFF; margin-bottom: 15px;}
+
+        .principio {
+            background: rgba(0,191,255,0.1);
+            border-left: 3px solid #00BFFF;
+            border-radius: 12px;
+            padding: 18px;
+            margin-bottom: 30px;
+            text-align: center;
+            font-style: italic;
+        }
+        .destaque {
+            background: rgba(255,193,7,0.08);
+            border-left: 3px solid #FFC107;
+            border-radius: 12px;
+            padding: 12px;
+            margin: 10px 0;
+        }
+        .alerta {
+            background: rgba(244,67,54,0.08);
+            border-left: 3px solid #F44336;
+            border-radius: 12px;
+            padding: 12px;
+            margin: 10px 0;
+        }
+        .secao {margin-bottom: 28px;}
+        .secao h3 {font-size: 17px; color: #00BFFF; margin-bottom: 10px; border-left: 3px solid #00BFFF; padding-left: 10px;}
+        .secao p {font-size: 15px; margin-bottom: 8px;}
+        .secao ul {padding-left: 22px; margin-top: 5px;}
+        .secao li {font-size: 15px; margin-bottom: 7px;}
+
+        .rodape {margin-top: 35px; font-size: 12px; color: #60729E; text-align: center; line-height: 1.6;}
+    </style>
+</head>
+<body>
+    <div class="fundo"></div>
+    <main>
+        <div class="cabecalho">
+            <div class="logo">✦ ANDRÔMEDA</div>
+            <h1 class="titulo">POLÍTICA DE SEGURANÇA E CONDUTA</h1>
+            <p class="subtitulo">Versão 2.0 • Compromisso com justiça, respeito e clareza</p>
+        </div>
+
+        <div class="principio">
+            <strong>PRINCÍPIO CENTRAL</strong><br>
+            "A segurança, o respeito e a imparcialidade são responsabilidades compartilhadas entre a plataforma, os motoristas e os passageiros. Todas as ocorrências serão investigadas com base em evidências, garantindo tratamento justo para todas as partes."
+        </div>
+
+        <div class="secao">
+            <h3>1. 🤝 PRINCÍPIO DA BOA-FÉ</h3>
+            <p>Todos os usuários comprometem-se a agir com boa-fé, honestidade e respeito, sendo vedada qualquer tentativa de fraude, obtenção de vantagem indevida ou manipulação das ferramentas da plataforma.</p>
+        </div>
+
+        <div class="secao">
+            <h3>2. 🚦 PREFERÊNCIA DE PERFIL DO MOTORISTA</h3>
+            <p>O passageiro poderá informar sua preferência no momento da solicitação:</p>
+            <ul>
+                <li>Condutora (mulher)</li>
+                <li>Condutor (homem)</li>
+                <li>Qualquer um</li>
+            </ul>
+            <div class="destaque">
+                <strong>Importante:</strong> A preferência será atendida conforme a disponibilidade no momento, sem garantia de que sempre haverá um profissional com o perfil solicitado.
+            </div>
+        </div>
+
+        <div class="secao">
+            <h3>3. 🆔 IDENTIFICAÇÃO ANTES DA CORRIDA</h3>
+            <ul>
+                <li>O passageiro deve conferir placa, modelo e cor do veículo, além do nome do motorista, antes de embarcar.</li>
+                <li>O motorista poderá solicitar confirmação do nome do passageiro antes de iniciar o trajeto.</li>
+            </ul>
+        </div>
+
+        <div class="secao">
+            <h3>4. 🛣️ ROTA E DESVIO DE TRAJETO</h3>
+            <p>O motorista deverá seguir preferencialmente a rota indicada pelo aplicativo. Alterações somente serão permitidas:</p>
+            <ul>
+                <li>Por solicitação do passageiro;</li>
+                <li>Por orientação do sistema de navegação;</li>
+                <li>Por motivos de segurança, acidentes, obras ou bloqueios;</li>
+                <li>Por determinação das autoridades competentes.</li>
+            </ul>
+            <p>Sempre que possível, a alteração será registrada automaticamente pelo sistema.</p>
+        </div>
+
+        <div class="secao">
+            <h3>5. ⏸️ PARADAS DURANTE A VIAGEM</h3>
+            <p>Paradas extras somente serão permitidas mediante solicitação do passageiro e aceitação do motorista. O tempo de espera poderá gerar cobrança adicional, conforme regras vigentes da plataforma.</p>
+        </div>
+
+        <div class="secao">
+            <h3>6. 📜 CÓDIGO DE CONDUTA</h3>
+            <p>O veículo é um ambiente de trabalho e convivência. É dever de todos:</p>
+            <ul>
+                <li>Tratar todos com respeito e educação;</li>
+                <li>Manter linguagem adequada;</li>
+                <li>Respeitar limites pessoais e de privacidade.</li>
+            </ul>
+            <div class="alerta">
+                <strong>É EXPRESSAMENTE PROIBIDO:</strong>
+                assédio, insinuações, cantadas, ameaças, discriminação por qualquer motivo, agressões físicas ou verbais, e qualquer comportamento inadequado — tanto por parte do motorista quanto do passageiro.
+            </div>
+        </div>
+
+        <div class="secao">
+            <h3>7. 🚫 ÁLCOOL E SUBSTÂNCIAS</h3>
+            <p>É proibido utilizar a plataforma sob efeito de álcool ou drogas quando isso comprometer a segurança da viagem. Havendo risco evidente, o motorista poderá recusar ou interromper a corrida, registrando o ocorrido.</p>
+        </div>
+
+        <div class="secao">
+            <h3>8. 👶 CRIANÇAS E MENORES DE IDADE</h3>
+            <p>O transporte de crianças e menores deve obedecer rigorosamente à legislação vigente. Quando exigido por lei, deverá ser utilizado dispositivo de retenção infantil adequado. Menores desacompanhados somente poderão utilizar a plataforma conforme regras específicas da Andrômeda.</p>
+        </div>
+
+        <div class="secao">
+            <h3>9. 🐾 TRANSPORTE DE ANIMAIS</h3>
+            <p>Permitido conforme a categoria do serviço cadastrada pelo motorista. Animais de assistência terão prioridade total, conforme determina a legislação brasileira.</p>
+        </div>
+
+        <div class="secao">
+            <h3>10. 📦 OBJETOS ESQUECIDOS</h3>
+            <ul>
+                <li>A Andrômeda auxilia na comunicação entre as partes para devolução;</li>
+                <li>A plataforma não garante a recuperação do objeto;</li>
+                <li>Poderá haver taxa de deslocamento para devolução, mediante acordo entre motorista e passageiro.</li>
+            </ul>
+        </div>
+
+        <div class="secao">
+            <h3>11. 🚗 CONSERVAÇÃO DO VEÍCULO</h3>
+            <p>Caso o passageiro cause danos ao veículo — como sujeira excessiva, vômito, quebra de peças ou danos intencionais — poderá haver cobrança integral dos prejuízos, mediante comprovação documental ou fotográfica.</p>
+        </div>
+
+        <div class="secao">
+            <h3>12. ❌ CANCELAMENTOS</h3>
+            <p>Os cancelamentos seguem regras claras de tempo de espera, responsabilidade de cada parte e cobrança de taxa, quando aplicável, conforme definido nos Termos de Uso.</p>
+        </div>
+
+        <div class="secao">
+            <h3>13. 🚨 BOTÃO DE EMERGÊNCIA</h3>
+            <p>Disponível para <strong>motoristas e passageiros</strong> durante todo o trajeto. Ao ser acionado:</p>
+            <ul>
+                <li>Inicia gravação protegida de áudio e, quando disponível, vídeo;</li>
+                <li>Registra automaticamente localização, horário e trajeto percorrido;</li>
+                <li>Avisa imediatamente a Central de Segurança da Andrômeda;</li>
+                <li>Permite acionar autoridades públicas e contatos de emergência cadastrados.</li>
+            </ul>
+            <p>Todos os registros ficam armazenados de forma segura. Eles só serão acessados por pessoas autorizadas e mantidos por prazo determinado, podendo ser fornecidos às autoridades mediante ordem judicial ou permissão legal.</p>
+        </div>
+
+        <div class="secao">
+            <h3>14. ⚖️ APURAÇÃO IMPARCIAL</h3>
+            <p><strong>Nenhuma das partes é considerada culpada automaticamente.</strong></p>
+            <p>A Andrômeda analisará todas as evidências disponíveis antes de tomar qualquer decisão, incluindo:</p>
+            <ul>
+                <li>Gravações de áudio e vídeo;</li>
+                <li>Dados de localização e trajeto;</li>
+                <li>Mensagens e registros do sistema;</li>
+                <li>Depoimentos das partes envolvidas;</li>
+                <li>Quaisquer outras provas apresentadas.</li>
+            </ul>
+        </div>
+
+        <div class="secao">
+            <h3>15. 🚫 PENALIDADES</h3>
+            <p>Quando a infração ficar <strong>comprovada</strong> por provas:</p>
+            <ul>
+                <li>Advertência formal;</li>
+                <li>Suspensão temporária da plataforma;</li>
+                <li>Desligamento definitivo da plataforma.</li>
+            </ul>
+            <div class="alerta">
+                <strong>Atenção:</strong> Denúncias falsas comprovadas também geram penalidades para quem as fez, independentemente de ser passageiro ou motorista.
+            </div>
+        </div>
+
+        <div class="secao">
+            <h3>16. 📢 CANAL DE RECURSOS</h3>
+            <p>Toda decisão de suspensão ou desligamento poderá ser objeto de recurso administrativo dentro do prazo estabelecido pela plataforma, sendo novamente analisada pela equipe responsável.</p>
+        </div>
+
+        <div class="secao">
+            <h3>17. 🚪 ENCERRAMENTO DE CONTA</h3>
+            <p>Em caso de desligamento definitivo:</p>
+            <ul>
+                <li>Valores a receber serão pagos conforme as regras da plataforma;</li>
+                <li>Após a quitação, a conta será encerrada;</li>
+                <li>Tudo feito dentro do cumprimento da legislação vigente.</li>
+            </ul>
+        </div>
+
+        <div class="rodape">
+            <strong>Andrômeda Mobilidade Inteligente®</strong><br>
+            Projeto idealizado por Francival Alves Farias<br>
+            Todos os direitos reservados • Atualizado em 23/07/2026
+        </div>
+    </main>
+</body>
+</html>
