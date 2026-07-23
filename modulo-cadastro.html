@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Módulo de Cadastro | Andrômeda</title>
+    <meta name="theme-color" content="#050B18">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@500;600&display=swap" rel="stylesheet">
+    <style>
+        * {margin: 0; padding: 0; box-sizing: border-box;}
+        html, body {
+            width: 100%; min-height: 100vh;
+            background: #050B18;
+            color: #C5D2F0;
+            font-family: 'Inter', sans-serif;
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+        .fundo {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at 50% 10%, rgba(0,191,255,0.08) 0%, transparent 60%);
+            z-index: -1;
+        }
+        main {
+            max-width: 480px;
+            margin: 0 auto;
+            padding: 8% 5% 12% 5%;
+        }
+        .cabecalho {text-align: center; margin-bottom: 30px;}
+        .logo {font-family: 'Orbitron', sans-serif; font-size: 22px; color: #00BFFF; margin-bottom: 5px;}
+        .titulo {font-size: 20px; font-weight: 700; color: #E0F7FF; margin-bottom: 8px;}
+        .subtitulo {font-size: 14px; color: #96BCFF; margin-bottom: 15px;}
+
+        .objetivo {
+            background: rgba(0,191,255,0.08);
+            border-left: 3px solid #00BFFF;
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 30px;
+        }
+        .destaque {
+            background: rgba(255,193,7,0.08);
+            border-left: 3px solid #FFC107;
+            border-radius: 12px;
+            padding: 12px;
+            margin: 10px 0;
+        }
+        .fluxo {
+            background: rgba(40,199,111,0.08);
+            border-left: 3px solid #28C76F;
+            border-radius: 12px;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        .status {
+            background: rgba(156,39,176,0.08);
+            border-left: 3px solid #9C27B0;
+            border-radius: 12px;
+            padding: 12px;
+            margin: 10px 0;
+        }
+        .secao {margin-bottom: 28px;}
+        .secao h3 {font-size: 17px; color: #00BFFF; margin-bottom: 10px; border-left: 3px solid #00BFFF; padding-left: 10px;}
+        .secao p {font-size: 15px; margin-bottom: 8px;}
+        .secao ul {padding-left: 22px; margin-top: 5px;}
+        .secao li {font-size: 15px; margin-bottom: 7px;}
+
+        .rodape {margin-top: 35px; font-size: 12px; color: #60729E; text-align: center; line-height: 1.6;}
+    </style>
+</head>
+<body>
+    <div class="fundo"></div>
+    <main>
+        <div class="cabecalho">
+            <div class="logo">✦ ANDRÔMEDA</div>
+            <h1 class="titulo">MÓDULO DE CADASTRO</h1>
+            <p class="subtitulo">Especificação Oficial • Versão 2.0 • Nível Corporativo</p>
+        </div>
+
+        <div class="objetivo">
+            <h3>🎯 OBJETIVO GERAL</h3>
+            <p>Criar um sistema de cadastro seguro, organizado e com validações rigorosas para garantir a qualidade e a confiança de todos os usuários — protegendo passageiros, motoristas, parceiros e a própria Andrômeda, em total conformidade com a LGPD e legislação vigente.</p>
+        </div>
+
+        <div class="secao">
+            <h3>1. 🧑 CADASTRO DE PASSAGEIRO (CLIENTE)</h3>
+            <p><strong>Dados Pessoais Obrigatórios:</strong></p>
+            <ul>
+                <li>Nome completo</li>
+                <li>CPF</li>
+                <li>Data de nascimento (confirmação de maioridade: mínimo 18 anos)</li>
+                <li>Foto de perfil</li>
+                <li>Foto de documento oficial com foto</li>
+                <li>Selfie para comparação facial</li>
+                <li>Telefone com WhatsApp</li>
+                <li>E-mail válido</li>
+                <li>Endereço completo</li>
+                <li>Contato de emergência</li>
+                <li>Opção de informar necessidades de acessibilidade</li>
+            </ul>
+
+            <p><strong>Medidas de Segurança:</strong></p>
+            <ul>
+                <li>Verificação de telefone por código SMS</li>
+                <li>Verificação de e-mail por link de confirmação</li>
+                <li>Autenticação em dois fatores (2FA)</li>
+                <li>Confirmação de veracidade dos dados</li>
+                <li>Aceitação dos Termos de Uso</li>
+                <li>Aceitação da Política de Privacidade e consentimento específico para dados sensíveis (LGPD)</li>
+            </ul>
+
+            <p><strong>Treinamento Obrigatório antes da liberação:</strong></p>
+            <ul>
+                <li>Direitos e deveres do passageiro</li>
+                <li>Uso correto da plataforma</li>
+                <li>Como denunciar problemas</li>
+                <li>Respeito e boa convivência</li>
+                <li>Dicas de segurança durante a viagem</li>
+            </ul>
+            <p>Ao final: mini teste de aproveitamento e emissão do selo ✅ <strong>Treinamento Concluído</strong>.</p>
+        </div>
+
+        <div class="secao">
+            <h3>2. 🚗 CADASTRO DE MOTORISTA</h3>
+            <p><strong>Dados Pessoais:</strong></p>
+            <ul>
+                <li>Nome completo</li>
+                <li>CPF</li>
+                <li>RG e CNH válida com foto</li>
+                <li>Foto de perfil</li>
+                <li>Selfie para comparação facial</li>
+                <li>Data de nascimento</li>
+                <li>Telefone e e-mail</li>
+                <li>Endereço completo</li>
+                <li>Chave Pix ou dados bancários para pagamentos</li>
+            </ul>
+
+            <p><strong>Documentação Obrigatória:</strong></p>
+            <ul>
+                <li>CNH dentro da validade — com verificação junto aos órgãos competentes</li>
+                <li>Documento do veículo</li>
+                <li>CRLV atualizado</li>
+                <li>Comprovante de residência atual</li>
+                <li>Fotos completas do veículo</li>
+                <li>Seguro veicular, quando aplicável</li>
+                <li>Informações sobre inspeção veicular, quando exigida</li>
+                <li>Certidão negativa de antecedentes criminais, conforme legislação</li>
+            </ul>
+
+            <div class="destaque">
+                <strong>⚠️ Observação Importante:</strong> Veículos pertencentes a órgãos públicos ou destinados exclusivamente ao serviço público não serão aprovados se a utilização for incompatível com sua finalidade legal.
+            </div>
+
+            <p><strong>Validação e Treinamento:</strong></p>
+            <ul>
+                <li>Conferência de toda documentação</li>
+                <li>Verificação da situação do veículo (restrições, roubo, sinistro)</li>
+                <li>Declaração de veracidade das informações</li>
+                <li>Revalidação periódica automática de documentos</li>
+                <li>Treinamento: atendimento, conduta, segurança, direção responsável, uso do app, direitos e deveres</li>
+                <li>Mini prova de aprovação</li>
+                <li>Selo de Motorista Qualificado</li>
+            </ul>
+        </div>
+
+        <div class="secao">
+            <h3>3. 🤝 CADASTRO DE PARCEIROS</h3>
+            <p>Válido para empresas, lojas, farmácias, restaurantes, hotéis, oficinas e prestadores de serviço em geral.</p>
+
+            <p><strong>Dados:</strong></p>
+            <ul>
+                <li>Razão Social</li>
+                <li>Nome Fantasia</li>
+                <li>CNPJ</li>
+                <li>Inscrição Estadual/Municipal (quando aplicável)</li>
+                <li>Endereço completo e geolocalização do estabelecimento</li>
+                <li>Horário de funcionamento</li>
+                <li>Nome e documento do responsável legal</li>
+                <li>Telefone e e-mail</li>
+                <li>Logotipo da marca</li>
+            </ul>
+
+            <p><strong>Documentos e Treinamento:</strong></p>
+            <ul>
+                <li>Comprovante de inscrição no CNPJ ativo</li>
+                <li>Documento do responsável legal</li>
+                <li>Contrato Social ou Certificado de MEI</li>
+                <li>Alvará de funcionamento, quando obrigatório</li>
+                <li>Licenças específicas para atividades regulamentadas</li>
+                <li>Dados bancários para recebimentos</li>
+                <li>Política de atendimento e prazos</li>
+                <li>Treinamento: regras de divulgação, responsabilidades, boas práticas e políticas da Andrômeda</li>
+                <li>Teste de aproveitamento e aprovação</li>
+            </ul>
+        </div>
+
+        <div class="fluxo">
+            <h3>4. 📑 FLUXO E STATUS DE APROVAÇÃO</h3>
+            <p><strong>Nenhuma conta é liberada automaticamente!</strong> A ordem é sempre:</p>
+            <ol>
+                <li>Preenchimento completo do cadastro</li>
+                <li>Envio de todos os documentos exigidos</li>
+                <li>Análise e validação pela equipe Andrômeda</li>
+                <li>Realização do treinamento obrigatório</li>
+                <li>Aprovação no teste final</li>
+                <li>Aprovação definitiva da conta</li>
+                <li>✅ Liberação para uso da plataforma</li>
+            </ol>
+
+            <div class="status">
+                <strong>📊 Status detalhados do cadastro:</strong>
+                <ul>
+                    <li>Cadastro recebido</li>
+                    <li>Documentação em análise</li>
+                    <li>Pendência documental</li>
+                    <li>Aguardando treinamento</li>
+                    <li>Aguardando prova</li>
+                    <li>Em revisão</li>
+                    <li>Aprovado</li>
+                    <li>Reprovado</li>
+                    <li>Suspenso</li>
+                    <li>Bloqueado</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="secao">
+            <h3>5. ⭐ SISTEMA DE PONTUAÇÃO E REPUTAÇÃO</h3>
+            <p>Todos os usuários iniciam com boa reputação. O sistema acompanha:</p>
+            <ul>
+                <li>Avaliações recebidas e dadas</li>
+                <li>Índice de pontualidade</li>
+                <li>Índice de cancelamentos</li>
+                <li>Índice de reclamações</li>
+                <li>Elogios e histórico de advertências</li>
+                <li>Cumprimento das regras</li>
+                <li>Medalhas e selos de qualidade</li>
+                <li>Benefícios para usuários exemplares</li>
+            </ul>
+            <p>Essa pontuação define benefícios, prioridade e análises futuras.</p>
+        </div>
+
+        <div class="secao">
+            <h3>6. 🔒 SEGURANÇA E AUDITORIA</h3>
+            <p>A plataforma garante:</p>
+            <ul>
+                <li>Criptografia de todos os dados e documentos enviados</li>
+                <li>Registro de IP, data, horário e dispositivo utilizado</li>
+                <li>Auditoria completa de todas as alterações no cadastro</li>
+                <li>Backup automático dos registros</li>
+                <li>Monitoramento constante contra fraudes</li>
+                <li>Solicitação de nova documentação a qualquer momento</li>
+                <li>Suspensão ou bloqueio em caso de suspeita ou descumprimento</li>
+            </ul>
+            <p><strong>Histórico de alterações:</strong> registra quem alterou, quando, o que mudou e o motivo.</p>
+        </div>
+
+        <div class="secao">
+            <h3>7. ⚖️ PROTEÇÃO JURÍDICA E LGPD</h3>
+            <p>Todos os usuários devem aceitar e concordar com:</p>
+            <ul>
+                <li>Termos de Uso da Plataforma</li>
+                <li>Política de Privacidade (LGPD)</li>
+                <li>Código de Conduta</li>
+                <li>Demais regras da Andrômeda</li>
+            </ul>
+            <p>Todo aceite fica registrado e armazenado.</p>
+            <p><strong>Seus direitos garantidos:</strong></p>
+            <ul>
+                <li>Solicitar cópia completa dos dados</li>
+                <li>Corrigir informações incorretas</li>
+                <li>Excluir conta, quando permitido por lei</li>
+                <li>Revogar qualquer consentimento</li>
+                <li>Solicitar portabilidade dos dados</li>
+                <li>Receber informações sobre retenção e descarte</li>
+            </ul>
+        </div>
+
+        <div class="secao">
+            <h3>8. 🤖 INTELIGÊNCIA ARTIFICIAL ANDRÔMEDA</h3>
+            <p>A IA atua para agilizar e proteger:</p>
+            <ul>
+                <li>Análise automática de documentos</li>
+                <li>Detecção de possíveis fraudes</li>
+                <li>Identificação antecipada de documentos vencidos</li>
+                <li>Solicitação automática de atualização</li>
+                <li>Auxílio na aprovação inicial</li>
+                <li>Geração de alertas para a equipe</li>
+            </ul>
+        </div>
+
+        <div class="secao">
+            <h3>9. 🛠️ PAINEL ADMINISTRATIVO</h3>
+            <p>Funções exclusivas para gestão:</p>
+            <ul>
+                <li>Aprovar ou reprovar cadastros</li>
+                <li>Solicitar novos documentos</li>
+                <li>Aplicar advertências</li>
+                <li>Suspender ou bloquear contas</li>
+                <li>Consultar histórico completo</li>
+                <li>Exportar relatórios</li>
+                <li>Gerenciar treinamentos e certificados</li>
+            </ul>
+        </div>
+
+        <div class="objetivo">
+            <h3>🎯 OBJETIVO FINAL</h3>
+            <p>Criar um ambiente organizado, transparente e totalmente confiável, onde todos sabem exatamente seus direitos, deveres e responsabilidades antes de começar a usar a Andrômeda Mobilidade.</p>
+        </div>
+
+        <div class="rodape">
+            <strong>Andrômeda Mobilidade Inteligente®</strong><br>
+            Projeto idealizado por Francival Alves Farias<br>
+            Todos os direitos reservados • Atualizado em 23/07/2026
+        </div>
+    </main>
+</body>
+</html>
