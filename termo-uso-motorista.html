@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Termo de Uso — Motorista Parceiro | Andrômeda</title>
+    <meta name="theme-color" content="#050B18">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@500;600&display=swap" rel="stylesheet">
+    <style>
+        * {margin: 0; padding: 0; box-sizing: border-box;}
+        html, body {
+            width: 100%; min-height: 100vh;
+            background: #050B18;
+            color: #C5D2F0;
+            font-family: 'Inter', sans-serif;
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+        .fundo {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at 50% 10%, rgba(0,191,255,0.08) 0%, transparent 60%);
+            z-index: -1;
+        }
+        main {
+            max-width: 480px;
+            margin: 0 auto;
+            padding: 8% 5% 12% 5%;
+        }
+        .cabecalho {text-align: center; margin-bottom: 30px;}
+        .logo {font-family: 'Orbitron', sans-serif; font-size: 22px; color: #00BFFF; margin-bottom: 5px;}
+        .titulo {font-size: 20px; font-weight: 700; color: #E0F7FF; margin-bottom: 8px;}
+        .subtitulo {font-size: 14px; color: #96BCFF; margin-bottom: 15px;}
+
+        .aviso-importante {
+            background: rgba(0,191,255,0.1);
+            border: 1px solid #00BFFF;
+            border-radius: 12px;
+            padding: 18px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .aviso-importante h4 {color: #00BFFF; margin-bottom: 8px; font-size: 16px;}
+
+        .objetivo {
+            background: rgba(0,191,255,0.08);
+            border-left: 3px solid #00BFFF;
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 30px;
+        }
+        .destaque {
+            background: rgba(255,193,7,0.08);
+            border-left: 3px solid #FFC107;
+            border-radius: 12px;
+            padding: 12px;
+            margin: 10px 0;
+        }
+        .alerta {
+            background: rgba(244,67,54,0.08);
+            border-left: 3px solid #F44336;
+            border-radius: 12px;
+            padding: 12px;
+            margin: 10px 0;
+        }
+        .beneficios {
+            background: rgba(76,175,80,0.08);
+            border-left: 3px solid #4CAF50;
+            border-radius: 12px;
+            padding: 12px;
+            margin: 10px 0;
+        }
+        .secao {margin-bottom: 28px;}
+        .secao h3 {font-size: 17px; color: #00BFFF; margin-bottom: 10px; border-left: 3px solid #00BFFF; padding-left: 10px;}
+        .secao p {font-size: 15px; margin-bottom: 8px;}
+        .secao ul {padding-left: 22px; margin-top: 5px;}
+        .secao li {font-size: 15px; margin-bottom: 7px;}
+
+        /* ÁREA DE ACEITE E CONFIRMAÇÃO */
+        .area-aceite {
+            margin-top: 40px;
+            padding-top: 25px;
+            border-top: 1px solid rgba(0,191,255,0.2);
+            text-align: center;
+        }
+        .caixa-confirmacao {
+            text-align: left;
+            padding: 15px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 10px;
+            margin-bottom: 20px;
+            cursor: pointer;
+        }
+        .caixa-confirmacao input {margin-right: 10px; transform: scale(1.1);}
+        .texto-aceite {
+            font-size: 15px;
+            margin-bottom: 20px;
+            color: #E0F7FF;
+            text-align: justify;
+        }
+        .botoes {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .btn {
+            flex: 1;
+            min-width: 140px;
+            padding: 14px 20px;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .btn:disabled {opacity: 0.4; cursor: not-allowed; transform: none !important;}
+        .btn-aceito {
+            background: #00BFFF;
+            color: #050B18;
+        }
+        .btn-aceito:active:not(:disabled) {transform: scale(0.97);}
+        .btn-naoaceito {
+            background: rgba(255,255,255,0.1);
+            color: #C5D2F0;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        .btn-naoaceito:active {transform: scale(0.97);}
+
+        .rodape {margin-top: 35px; font-size: 12px; color: #60729E; text-align: center; line-height: 1.6;}
+    </style>
+</head>
+<body>
+    <div class="fundo"></div>
+    <main>
+        <div class="cabecalho">
+            <div class="logo">✦ ANDRÔMEDA</div>
+            <h1 class="titulo">TERMO DE USO DO MOTORISTA PARCEIRO</h1>
+            <p class="subtitulo">Versão 5.0 — Com registro oficial de aceite</p>
+        </div>
+
+        <!-- AVISO PRINCIPAL -->
+        <div class="aviso-importante">
+            <h4>📢 LEIA COM ATENÇÃO ANTES DE ACEITAR</h4>
+            <p>Ao se cadastrar, você entra numa <strong>parceria profissional e formal</strong>. Toda a sua conduta será <strong>registrada e avaliada</strong>. Seu aceite fica gravado com dados de data, hora, dispositivo e versão do termo, servindo como prova legal.</p>
+        </div>
+
+        <div class="objetivo">
+            <h3>🎯 1. OBJETIVO</h3>
+            <p>Estabelecer as regras, direitos, deveres e responsabilidades dos motoristas parceiros da Andrômeda Mobilidade.</p>
+        </div>
+
+        <div class="secao">
+            <h3>📋 2. REQUISITOS PARA CADASTRO</h3>
+            <p>O motorista deverá possuir:</p>
+            <ul>
+                <li>Documento oficial com foto;</li>
+                <li>CPF regular;</li>
+                <li>CNH compatível e válida;</li>
+                <li>Documentação do veículo regularizada;</li>
+                <li>Comprovante de residência;</li>
+                <li>Ficha criminal sem restrições graves;</li>
+                <li>Fotos de perfil e verificação;</li>
+                <li>Demais documentos exigidos pela plataforma.</li>
+            </ul>
+        </div>
+
+        <div class="secao">
+            <h3>🎓 3. TREINAMENTO OBRIGATÓRIO</h3>
+            <p>Antes de iniciar as atividades, o motorista deverá:</p>
+            <ul>
+                <li>Concluir todos os módulos de treinamento;</li>
+                <li>Responder aos questionários de avaliação;</li>
+                <li>Atingir a nota mínima exigida;</li>
+                <li>Somente após aprovação estará liberado para realizar corridas.</li>
+            </ul>
+        </div>
+
+        <div class="secao">
+            <h3>🤝 4. PRINCÍPIO FUNDAMENTAL: RESPEITO AO PASSAGEIRO</h3>
+            <div class="destaque">
+                <p>O passageiro não deve ser tratado como objeto ou apenas fonte de renda. Cada passageiro merece <strong>respeito, educação, atenção e segurança</strong> durante toda a viagem. Esse é o princípio base da nossa plataforma.</p>
+            </div>
+        </div>
+
+        <div class="secao">
+            <h3>🛡️ 5. SEGURANÇA E ACOMPANHAMENTO</h3>
+            <p>Toda a atividade é acompanhada para segurança de todos:</p>
+            <ul>
+                <li>Confirme a identidade do passageiro antes de começar;</li>
+                <li>Siga preferencialmente a rota indicada;</li>
+                <li>Use o botão de emergência quando necessário;</li>
+                <li>Comunique ocorrências graves imediatamente;</li>
+                <li>Coopere com investigações — todos os registros são válidos como prova;</li>
+                <li>Gravações autorizadas, localização, mensagens e dados do percurso fazem parte da análise.</li>
+            </ul>
+        </div>
+
+        <div class="secao">
+            <h3>🚫 6. CONDUTAS PROIBIDAS E COMBATE A FRAUDES</h3>
+            <div class="alerta">
+                <p><strong>É expressamente proibido:</strong></p>
+                <ul>
+                    <li>Compartilhar, vender ou ceder sua conta;</li>
+                    <li>Permitir que terceiros usem seu cadastro;</li>
+                    <li>Trabalhar sob efeito de álcool ou substâncias;</li>
+                    <li>Assediar, discriminar, ameaçar ou agredir qualquer pessoa;</li>
+                    <li>Receber pagamentos fora dos canais autorizados;</li>
+                    <li>Fraudar corridas, avaliações ou documentos;</li>
+                    <li>Usar GPS falso, localização manipulada ou programas automatizados;</li>
+                    <li>Apresentar documentos falsos ou adulterados.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="secao">
+            <h3>📄 7. DOCUMENTAÇÃO ATUALIZADA</h3>
+            <p>Caso qualquer documento expire ou fique irregular, o motorista poderá ser <strong>temporariamente impedido de usar a plataforma</strong> até que tudo seja regularizado.</p>
+        </div>
+
+        <div class="secao">
+            <h3>⭐ 8. SEU ESCORE DE CONDUTA</h3>
+            <p>Todo motorista tem uma pontuação que reflete seu trabalho. Ela considera:</p>
+            <ul>
+                <li>Avaliações de passageiros;</li>
+                <li>Elogios e reclamações confirmadas;</li>
+                <li>Cumprimento de horários e rotas;</li>
+                <li>Cancelamentos justificados ou não;</li>
+                <li>Estado de conservação do veículo;</li>
+                <li>Cumprimento das normas;</li>
+                <li>Colaboração em investigações;</li>
+                <li>Prática de direção segura;</li>
+                <li>Tratamento respeitoso.</li>
+            </ul>
+            <p><strong>Importante:</strong> O escore nunca será reduzido apenas por denúncias falsas ou sem prova concreta.</p>
+
+            <div class="beneficios">
+                <strong>🎁 BENEFÍCIOS PARA QUEM TEM ESCORE ALTO:</strong>
+                <ul>
+                    <li>Prioridade no recebimento de corridas;</li>
+                    <li>Acesso a corridas de maior valor;</li>
+                    <li>Condições especiais com parceiros;</li>
+                    <li>Suporte prioritário;</li>
+                    <li>Reconhecimento oficial;</li>
+                    <li>Participação em programas de benefícios financeiros.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="secao">
+            <h3>🔍 9. INVESTIGAÇÃO DE OCORRÊNCIAS</h3>
+            <p>Toda denúncia será analisada com base em registros do aplicativo, histórico da corrida, localização, comunicações, gravações autorizadas, documentos e depoimentos das partes, garantindo sempre a análise imparcial.</p>
+        </div>
+
+        <div class="secao">
+            <h3>❌ 10. ENCERRAMENTO DA PARCERIA</h3>
+            <p>A Andrômeda não tem obrigação de manter permanentemente qualquer motorista na plataforma. Caso sejam confirmadas violações graves deste termo, da lei ou das políticas internas, o cadastro poderá ser encerrado definitivamente, garantido sempre o direito de apresentar esclarecimentos.</p>
+        </div>
+
+        <div class="secao">
+            <h3>🔒 11. PRIVACIDADE E DADOS</h3>
+            <p>Seus dados são tratados conforme a LGPD e usados apenas para a prestação do serviço, segurança e cumprimento de obrigações legais.</p>
+        </div>
+
+        <div class="secao">
+            <h3>📌 12. DISPOSIÇÕES FINAIS</h3>
+            <p>Este termo pode ser atualizado com comunicação prévia. O uso da plataforma implica aceite das regras vigentes. Fica eleito o foro da comarca de Maracanaú/CE para resolver quaisquer questões.</p>
+        </div>
+
+        <!-- ÁREA DE ACEITE COM REGISTRO -->
+        <div class="area-aceite">
+            <div class="caixa-confirmacao">
+                <input type="checkbox" id="li-tudo" onchange="verificarAceite()">
+                <label for="li-tudo">☑️ Confirmo que li integralmente este documento e compreendi meus direitos, deveres, responsabilidades e as consequências do seu descumprimento.</label>
+            </div>
+
+            <p class="texto-aceite">
+                <strong>Declaro que li integralmente este documento, compreendi todas as cláusulas, estou ciente de meus direitos, deveres e responsabilidades, concordo com o sistema de pontuação (Escore), autorizo o registro eletrônico deste aceite contendo data, hora, dados do dispositivo, versão do termo e demais informações de validação, e assumo o compromisso de atuar com ética, respeito, segurança, profissionalismo e em conformidade com a legislação vigente e as políticas da Andrômeda Mobilidade.</strong>
+            </p>
+
+            <div class="botoes">
+                <button class="btn btn-aceito" id="btn-aceitar" disabled onclick="registrarAceite()">CONCORDO E ACEITO</button>
+                <button class="btn btn-naoaceito" onclick="alert('❌ Sem o aceite dos termos não é possível prosseguir com o cadastro.')">NÃO CONCORDO</button>
+            </div>
+        </div>
+
+        <div class="rodape">
+            <strong>Andrômeda Mobilidade Inteligente®</strong><br>
+            Projeto idealizado por Francival Alves Farias<br>
+            Todos os direitos reservados • Versão 5.0 — 23/07/2026
+        </div>
+    </main>
+
+    <script>
+        function verificarAceite() {
+            const marcou = document.getElementById('li-tudo').checked;
+            document.getElementById('btn-aceitar').disabled = !marcou;
+        }
+
+        function registrarAceite() {
+            // Aqui o sistema coleta os dados para registro oficial
+            const dadosAceite = {
+                dataHora: new Date().toLocaleString('pt-BR'),
+                versaoTermo: '5.0',
+                dispositivo: navigator.userAgent,
+                plataforma: navigator.platform,
+                idioma: navigator.language
+                // IP e geolocalização são coletados automaticamente pelo servidor no momento do cadastro
+            };
+
+            console.log('✅ ACEITE REGISTRADO:', dadosAceite);
+            alert('✅ Aceite registrado com sucesso! Agora você pode prosseguir com o cadastro.');
+            // Aqui segue para a próxima etapa do cadastro
+        }
+    </script>
+</body>
+</html>
