@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Requisitos dos Módulos | Andrômeda</title>
+    <meta name="theme-color" content="#050B18">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@500;600&display=swap" rel="stylesheet">
+    <style>
+        * {margin: 0; padding: 0; box-sizing: border-box;}
+        html, body {
+            width: 100%; min-height: 100vh;
+            background: #050B18;
+            color: #C5D2F0;
+            font-family: 'Inter', sans-serif;
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+        .fundo {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at 50% 10%, rgba(0,191,255,0.08) 0%, transparent 60%);
+            z-index: -1;
+        }
+        main {
+            max-width: 480px;
+            margin: 0 auto;
+            padding: 8% 5% 12% 5%;
+        }
+        .cabecalho {text-align: center; margin-bottom: 30px;}
+        .logo {font-family: 'Orbitron', sans-serif; font-size: 22px; color: #00BFFF; margin-bottom: 5px;}
+        .titulo {font-size: 20px; font-weight: 700; color: #E0F7FF; margin-bottom: 8px;}
+        .subtitulo {font-size: 14px; color: #96BCFF; margin-bottom: 15px;}
+
+        .blocos {
+            background: rgba(0,191,255,0.08);
+            border-left: 3px solid #00BFFF;
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 30px;
+        }
+        .aviso {
+            background: rgba(255,193,7,0.08);
+            border-left: 3px solid #FFC107;
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 30px;
+        }
+        .secao {margin-bottom: 28px;}
+        .secao h3 {font-size: 17px; color: #00BFFF; margin-bottom: 10px; border-left: 3px solid #00BFFF; padding-left: 10px;}
+        .secao p {font-size: 15px; margin-bottom: 8px;}
+        .secao ul {padding-left: 22px; margin-top: 5px;}
+        .secao li {font-size: 15px; margin-bottom: 7px;}
+
+        .lista-ideias {
+            background: rgba(0,191,255,0.05);
+            border-radius: 12px;
+            padding: 15px;
+            margin-top: 35px;
+        }
+        .lista-ideias h3 {color: #28C76F; border-left: 3px solid #28C76F;}
+
+        .rodape {margin-top: 35px; font-size: 12px; color: #60729E; text-align: center; line-height: 1.6;}
+    </style>
+</head>
+<body>
+    <div class="fundo"></div>
+    <main>
+        <div class="cabecalho">
+            <div class="logo">✦ ANDRÔMEDA</div>
+            <h1 class="titulo">DOCUMENTO DE REQUISITOS</h1>
+            <p class="subtitulo">Módulos da Plataforma • Versão 1.1 • Preparado para grande porte</p>
+        </div>
+
+        <div class="blocos">
+            <h3>📦 ESTRUTURA GERAL DOS BLOCOS</h3>
+            <p>Plataforma dividida em blocos independentes — facilita criação, testes e atualizações:</p>
+            <ul>
+                <li>01 — Cadastro</li>
+                <li>02 — Corridas</li>
+                <li>03 — Segurança</li>
+                <li>04 — IA Andrômeda</li>
+                <li>05 — Financeiro</li>
+                <li>06 — Veículos</li>
+                <li>07 — Parceiros</li>
+                <li>08 — Empresas</li>
+                <li>09 — Entregas</li>
+                <li>10 — Fretes</li>
+                <li>11 — Mudanças</li>
+                <li>12 — Administração</li>
+                <li>13 — Jurídico</li>
+                <li>14 — Relatórios</li>
+                <li>15 — Configurações</li>
+            </ul>
+        </div>
+
+        <div class="aviso">
+            <strong>📌 Importante:</strong> Toda estrutura foi planejada para evitar retrabalho, permitindo que a plataforma cresça sem precisar reescrever regras.
+        </div>
+
+        <div class="secao">
+            <h3>1. 🎓 MODO TREINAMENTO</h3>
+            <ul>
+                <li>Ambiente seguro para motoristas, passageiros e parceiros</li>
+                <li>Simulação completa de corridas — sem usar dados reais</li>
+                <li>Tutoriais interativos passo a passo</li>
+                <li>Emite certificado ao concluir o treinamento</li>
+                <li>Explicação detalhada de todas as funções do aplicativo</li>
+            </ul>
+        </div>
+
+        <div class="secao">
+            <h3>2. ✅ CHECKLIST INTELIGENTE DE ENCERRAMENTO</h3>
+            <p><strong>📤 Para o Passageiro:</strong></p>
+            <ul>
+                <li>Avaliar o motorista</li>
+                <li>Confirmar que pegou todos os pertences</li>
+                <li>Confirmar que não esqueceu nada no veículo</li>
+                <li>Informar se houve qualquer problema</li>
+                <li>Possibilidade de complementar a avaliação depois</li>
+            </ul>
+            <br>
+            <p><strong>🚗 Para o Motorista:</strong></p>
+            <ul>
+                <li>Confirmar estado do veículo</li>
+                <li>Informar sujeira, danos ou ocorrências</li>
+                <li>Registrar fotos ou vídeos quando necessário</li>
+                <li>Informar objetos esquecidos pelo passageiro</li>
+                <li>Solicitar limpeza extraordinária, se precisar</li>
+            </ul>
+        </div>
+
+        <div class="secao">
+            <h3>3. 🔎 MÓDULO ACHADOS E PERDIDOS</h3>
+            <ul>
+                <li>Registro completo do objeto</li>
+                <li>Envio de foto do objeto</li>
+                <li>Horário e local exato do encontro</li>
+                <li>Vínculo automático com a corrida</li>
+                <li>Notificação imediata ao passageiro</li>
+                <li>Organização de corrida de devolução</li>
+                <li>Cobrança transparente de taxa de deslocamento para devolver</li>
+                <li>Confirmação de entrega e histórico permanente</li>
+            </ul>
+        </div>
+
+        <div class="secao">
+            <h3>4. 🚙 INSPEÇÃO PERIÓDICA DOS VEÍCULOS</h3>
+            <p>Realizada automaticamente a cada 90 dias:</p>
+            <ul>
+                <li>Fotos externas completas</li>
+                <li>Fotos internas (bancos, painel, porta-malas)</li>
+                <li>Fotos dos pneus</li>
+                <li>Avaliação do estado geral do veículo</li>
+                <li>Comparação automática com inspeções anteriores</li>
+                <li>Histórico completo e permanente</li>
+            </ul>
+        </div>
+
+        <div class="secao">
+            <h3>5. 📝 REGISTRO DE DANOS</h3>
+            <p>Registrado quando houver:</p>
+            <ul>
+                <li>Sujeira excessiva, mau cheiro, vômito</li>
+                <li>Objetos quebrados, riscos ou danos em bancos/peças</li>
+                <li>Qualquer dano ou alteração no veículo</li>
+            </ul>
+            <p><strong>O sistema faz:</strong> registro, solicitação de fotos, abertura de ocorrência e encaminhamento para análise da IA Andrômeda.</p>
+        </div>
+
+        <div class="secao">
+            <h3>6. ⛔ BLOQUEIO TEMPORÁRIO DO VEÍCULO</h3>
+            <ul>
+                <li>Se estiver inadequado, sai automaticamente das corridas</li>
+                <li>Motorista faz limpeza, reparo ou ajuste</li>
+                <li>Envia novas fotos para análise</li>
+                <li>A IA libera o veículo novamente quando estiver em ordem</li>
+            </ul>
+        </div>
+
+        <div class="secao">
+            <h3>7. 🤝 PREFERÊNCIA DE RECOMBINAÇÃO</h3>
+            <p>Após a corrida, motorista e passageiro podem escolher:</p>
+            <ul>
+                <li>Aceito ser combinado novamente</li>
+                <li>Prefiro não aceitar</li>
+                <li>Não desejo mais corridas com essa pessoa</li>
+            </ul>
+            <p>Motivos válidos: assédio, ameaça, comportamento inadequado, dano ao veículo etc. A IA evita novas combinações automaticamente.</p>
+        </div>
+
+        <div class="secao">
+            <h3>8. 🛡️ SISTEMA PREVENTIVO DE SEGURANÇA</h3>
+            <ul>
+                <li>Cadastro de restrições autorizadas (medidas protetivas, decisões judiciais)</li>
+                <li>Quando há incompatibilidade, a IA simplesmente não oferece a corrida</li>
+                <li>Tudo feito com total preservação da privacidade das partes</li>
+            </ul>
+        </div>
+
+        <div class="secao">
+            <h3>9. 📋 CADASTRO INTELIGENTE DE VEÍCULOS</h3>
+            <p>Informações que definem quais corridas o veículo pode receber:</p>
+            <ul>
+                <li>Quantidade de passageiros</li>
+                <li>Tamanho do porta-malas</li>
+                <li>Aceita animais de estimação</li>
+                <li>Veículo adaptado / acessibilidade</li>
+                <li>Suporta bagagem grande, cadeira de rodas ou transporte especial</li>
+            </ul>
+            <p>A IA só envia corridas compatíveis com o veículo cadastrado.</p>
+        </div>
+
+        <div class="secao">
+            <h3>10. 🚘 CATEGORIAS DE VEÍCULOS</h3>
+            <p>A plataforma atenderá:</p>
+            <ul>
+                <li>Moto</li>
+                <li>Carro comum, Sedan, SUV</li>
+                <li>Utilitário, Caminhonete, Fiorino</li>
+                <li>Van, Micro-ônibus</li>
+                <li>Caminhão leve</li>
+                <li>Fretes, pequenas mudanças e entregas</li>
+                <li>Transporte de pets</li>
+                <li>Veículos adaptados</li>
+            </ul>
+        </div>
+
+        <div class="secao">
+            <h3>11. 🧠 PAINEL CENTRAL DA IA ANDRÔMEDA</h3>
+            <p>A IA acompanha e processa tudo em tempo real:</p>
+            <ul>
+                <li>Ocorrências, inspeções vencidas e documentos prestes a vencer</li>
+                <li>Avaliações, objetos esquecidos e denúncias</li>
+                <li>Comportamento suspeito, qualidade dos usuários</li>
+                <li>Estatísticas, prevenção de fraudes e alertas automáticos</li>
+                <li>Histórico completo de todas as ações</li>
+            </ul>
+        </div>
+
+        <div class="secao">
+            <h3>12. ⭐ SISTEMA DE REPUTAÇÃO INTELIGENTE</h3>
+            <ul>
+                <li>Ranking de motoristas, passageiros, empresas e parceiros</li>
+                <li>Histórico completo de evolução da reputação</li>
+                <li>Medalhas, selos e conquistas por bom desempenho</li>
+                <li>Cálculo automático do Índice de Confiabilidade</li>
+            </ul>
+        </div>
+
+        <div class="secao">
+            <h3>13. 🚨 CENTRAL DE EMERGÊNCIA</h3>
+            <ul>
+                <li>Botão SOS único e acessível</li>
+                <li>Compartilhamento da viagem em tempo real</li>
+                <li>Contato rápido com familiares cadastrados</li>
+                <li>Acionamento imediato da Central Andrômeda</li>
+                <li>Registro automático de todos os dados da ocorrência</li>
+            </ul>
+        </div>
+
+        <div class="secao">
+            <h3>14. 📷 MONITORAMENTO INTELIGENTE</h3>
+            <ul>
+                <li>Compatibilidade opcional com câmeras veiculares</li>
+                <li>Registro de fotos antes e depois de cada corrida</li>
+                <li>Armazenamento seguro e protegido das evidências</li>
+                <li>Controle rigoroso de quem pode acessar as imagens</li>
+            </ul>
+        </div>
+
+        <div class="secao">
+            <h3>15. 📅 AGENDA INTELIGENTE</h3>
+            <ul>
+                <li>Agendamento de corridas com antecedência</li>
+                <li>Corridas recorrentes (diárias, semanais etc.)</li>
+                <li>Reservas antecipadas de veículos especiais</li>
+                <li>Controle de horários de plantão e disponibilidade</li>
+                <li>Lembretes automáticos</li>
+            </ul>
+        </div>
+
+        <div class="secao">
+            <h3>16. 💳 MÓDULO FINANCEIRO</h3>
+            <ul>
+                <li>Extrato completo e detalhado</li>
+                <li>Taxas e valores explicados claramente</li>
+                <li>Emissão de comprovantes</li>
+                <li>Solicitação e acompanhamento de reembolsos</li>
+                <li>Histórico de todos os pagamentos</li>
+                <li>Relatórios financeiros personalizados</li>
+            </ul>
+        </div>
+
+        <div class="secao">
+            <h3>17. 🤖 INTELIGÊNCIA ARTIFICIAL ANDRÔMEDA</h3>
+            <p>A IA realiza automaticamente:</p>
+            <ul>
+                <li>Identificação de fraudes e riscos</li>
+                <li>Detecção antecipada de documentos vencidos</li>
+                <li>Sugestões de melhorias para usuários</li>
+                <li>Análise de reclamações e ocorrências</li>
+                <li>Identificação de padrões de risco</li>
+                <li>Recomendação de treinamentos necessários</li>
+                <li>Geração de relatórios automáticos</li>
+            </ul>
+        </div>
+
+        <div class="secao">
+            <h3>🔐 AUDITORIA COMPLETA</h3>
+            <p>Toda ação dentro da plataforma fica registrada para garantia e segurança:</p>
+            <ul>
+                <li>Quem realizou a alteração</li>
+                <li>Data e horário exato</li>
+                <li>Localização, quando autorizada</li>
+                <li>Dispositivo utilizado</li>
+                <li>Versão do aplicativo</li>
+                <li>Endereço IP, quando aplicável</li>
+            </ul>
+            <p>Esses registros servem para suporte, auditorias e questões jurídicas.</p>
+        </div>
+
+        <div class="lista-ideias">
+            <h3>💡 IDEIAS REGISTRADAS PARA DESENVOLVIMENTO FUTURO</h3>
+            <ul>
+                <li>✅ Ficha técnica completa: motorista, passageiro, parceiros, empresas e veículos</li>
+                <li>✅ Sistema de documentos e renovação automática de alertas</li>
+                <li>✅ Sistema de seguros e proteção</li>
+                <li>✅ Integração com mapas (Google Maps, Waze etc.) com escolha livre</li>
+                <li>✅ Painel de disponibilidade: Livre, Ocupado, Pausa, Plantão</li>
+                <li>✅ Ambiente de testes da plataforma</li>
+                <li>✅ Módulo jurídico e de gestão de ocorrências</li>
+                <li>✅ Sistemas específicos: entregas, fretes, mudanças, transporte especial</li>
+                <li>✅ Módulo completo de acessibilidade</li>
+            </ul>
+        </div>
+
+        <div class="rodape">
+            <strong>Andrômeda Mobilidade Inteligente®</strong><br>
+            Projeto idealizado por Francival Alves Farias<br>
+            Todos os direitos reservados
+        </div>
+    </main>
+</body>
+</html>
