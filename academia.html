@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Academia Andrômeda — Capacitação Profissional</title>
+    <meta name="theme-color" content="#050B18">
+    <style>
+        * {margin: 0; padding: 0; box-sizing: border-box; font-family: sans-serif;}
+        html, body {
+            width: 100%;
+            max-width: 420px;
+            margin: 0 auto;
+            min-height: 100vh;
+            background: #050B18;
+            color: #E0EFFF;
+            padding: 20px 15px;
+        }
+
+        .cabecalho {text-align: center; margin-bottom: 20px;}
+        .logo {font-size: 24px; font-weight: bold; color: #00CCFF; margin-bottom: 5px;}
+        .sub {font-size: 14px; color: #8FB8E8; line-height: 1.5;}
+
+        .aviso-legal {
+            background: rgba(255, 220, 100, 0.1);
+            border: 1px solid #FFDD66;
+            border-radius: 10px;
+            padding: 12px;
+            font-size: 13px;
+            color: #FFDD66;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        /* PROGRESSO GERAL */
+        .progresso-geral {
+            background: #0F1A30;
+            border-radius: 10px;
+            padding: 12px;
+            margin-bottom: 20px;
+        }
+        .barra-fundo {
+            width: 100%;
+            height: 12px;
+            background: #203560;
+            border-radius: 6px;
+            overflow: hidden;
+            margin: 8px 0;
+        }
+        .barra-preenchida {
+            height: 100%;
+            width: 0%;
+            background: #00FF88;
+            transition: width 0.5s;
+        }
+        .texto-progresso {text-align: center; font-size: 14px; color: #B0D8FF;}
+
+        /* MÓDULOS */
+        .modulo {
+            background: #0F1A30;
+            border: 1px solid #203560;
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+        .modulo.concluido {border-color: #00FF88;}
+        .modulo.bloqueado {opacity: 0.4;}
+
+        .cabecalho-modulo {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .titulo-modulo {font-size: 17px; font-weight: bold; color: #00CCFF;}
+        .status {font-size: 14px; font-weight: bold;}
+        .concluido {color: #00FF88;}
+        .andamento {color: #FFDD66;}
+        .bloqueado {color: #777;}
+
+        .lista-itens {font-size: 15px; line-height: 1.7; color: #C0D8FF; margin-bottom: 10px;}
+        .lista-itens div::before {content: "✅ "; color: #00FF88;}
+
+        .botao-modulo {
+            width: 100%;
+            padding: 10px;
+            background: #00CCFF;
+            color: #050B18;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            margin-top: 8px;
+            cursor: pointer;
+        }
+        .botao-modulo:disabled {background: #333; color: #777; cursor: not-allowed;}
+
+        /* DNA ANDRÔMEDA */
+        .destaque {
+            background: rgba(0, 204, 255, 0.05);
+            border: 1px solid #00CCFF;
+            border-radius: 12px;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        .titulo-destaque {font-size: 16px; font-weight: bold; color: #00CCFF; margin-bottom: 10px; text-align: center;}
+        .frase {font-size: 15px; font-style: italic; color: #FFDD66; text-align: center; margin-bottom: 10px;}
+        .linha-dna {
+            display: flex;
+            justify-content: space-between;
+            padding: 7px 0;
+            border-bottom: 1px solid #203560;
+            font-size: 15px;
+        }
+        .nivel {text-align: center; font-size: 18px; font-weight: bold; color: #FFDD66; margin: 10px 0;}
+
+        /* HISTÓRICO */
+        .historico {
+            background: #0F1A30;
+            border-radius: 12px;
+            padding: 15px;
+            margin-top: 15px;
+        }
+        .item-hist {
+            padding: 8px 0;
+            border-bottom: 1px solid #203560;
+            font-size: 14px;
+        }
+
+        /* BOTÕES GERAIS */
+        .botao {
+            width: 100%;
+            padding: 14px;
+            background: #00CCFF;
+            color: #050B18;
+            font-weight: bold;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+        .botao-secundario {background: #203560; color: #E0EFFF; margin-top: 8px;}
+
+        .rodape {
+            text-align: center;
+            font-size: 11px;
+            color: #5577AA;
+            margin-top: 25px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="cabecalho">
+        <div class="logo">🎓 ACADEMIA ANDRÔMEDA</div>
+        <div class="sub">Antes de transportar, prepare-se para servir</div>
+    </div>
+
+    <div class="aviso-legal">
+        ⚠️ Estes cursos são complementares. Não substituem CNH, documentos legais ou exigências da lei.
+    </div>
+
+    <!-- PROGRESSO SALVO NO APARELHO -->
+    <div class="progresso-geral">
+        <div class="texto-progresso">Progresso Total: <span id="porcentagem">0%</span></div>
+        <div class="barra-fundo">
+            <div class="barra-preenchida" id="barra"></div>
+        </div>
+    </div>
+
+    <!-- MÓDULOS COM ORDEM DE LIBERAÇÃO -->
+    <div class="modulo concluido" id="mod1">
+        <div class="cabecalho-modulo">
+            <div class="titulo-modulo">🚗 MÓDULO 1 — CONDUÇÃO SEGURA</div>
+            <div class="status concluido">✅ CONCLUÍDO</div>
+        </div>
+        <div class="lista-itens">
+            <div>Direção defensiva</div>
+            <div>Leis de trânsito</div>
+            <div>Velocidade e distância segura</div>
+            <div>Cuidados com o veículo</div>
+        </div>
+        <button class="botao-modulo" disabled>✅ CONCLUÍDO</button>
+    </div>
+
+    <div class="modulo andamento" id="mod2">
+        <div class="cabecalho-modulo">
+            <div class="titulo-modulo">🤝 MÓDULO 2 — ATENDIMENTO HUMANO</div>
+            <div class="status andamento">🔄 EM ANDAMENTO</div>
+        </div>
+        <div class="lista-itens">
+            <div>Educação e respeito</div>
+            <div>Atendimento a idosos, crianças e PCD</div>
+            <div>Resolução de conflitos</div>
+        </div>
+        <button class="botao-modulo">▶ INICIAR AULA</button>
+    </div>
+
+    <div class="modulo bloqueado" id="mod3">
+        <div class="cabecalho-modulo">
+            <div class="titulo-modulo">🚨 MÓDULO 3 — EMERGÊNCIAS E SOCORROS</div>
+            <div class="status bloqueado">🔒 BLOQUEADO</div>
+        </div>
+        <div class="lista-itens">
+            <div>O que fazer em acidentes</div>
+            <div>Primeiros socorros básicos</div>
+            <div>Uso do botão de emergência</div>
+        </div>
+        <button class="botao-modulo" disabled>🔒 LIBERARÁ APÓS MÓDULO 2</button>
+    </div>
+
+    <div class="modulo bloqueado" id="mod4">
+        <div class="cabecalho-modulo">
+            <div class="titulo-modulo">🛡️ MÓDULO 4 — SEGURANÇA GERAL</div>
+            <div class="status bloqueado">🔒 BLOQUEADO</div>
+        </div>
+        <div class="lista-itens">
+            <div>Regras da plataforma</div>
+            <div>Não dirigir cansado/alcoolizado</div>
+            <div>Documentos e veículo em dia</div>
+        </div>
+        <button class="botao-modulo" disabled>🔒 LIBERARÁ APÓS MÓDULO 3</button>
+    </div>
+
+    <div class="modulo bloqueado" id="mod5">
+        <div class="cabecalho-modulo">
+            <div class="titulo-modulo">⚖️ MÓDULO 5 — ÉTICA E COMPORTAMENTO</div>
+            <div class="status bloqueado">🔒 BLOQUEADO</div>
+        </div>
+        <div class="lista-itens">
+            <div>Respeito acima de tudo</div>
+            <div>Não há espaço para assédio</div>
+            <div>Sem piadas ou comentários inadequados</div>
+            <div>Você representa a Andrômeda</div>
+        </div>
+        <button class="botao-modulo" disabled>🔒 LIBERARÁ APÓS MÓDULO 4</button>
+    </div>
+
+    <!-- DNA ANDRÔMEDA -->
+    <div class="destaque">
+        <div class="titulo-destaque">🧬 DNA ANDRÔMEDA — SEU PERFIL</div>
+        <div class="frase">"O passageiro não é mercadoria, é pessoa que merece respeito."</div>
+        <div class="linha-dna"><span>Segurança</span><span>96%</span></div>
+        <div class="linha-dna"><span>Respeito</span><span>98%</span></div>
+        <div class="linha-dna"><span>Condução</span><span>94%</span></div>
+        <div class="linha-dna"><span>Conhecimento</span><span>91%</span></div>
+        <div class="linha-dna"><span>Responsabilidade</span><span>97%</span></div>
+        <div class="nivel">🏆 NÍVEL: PROFISSIONAL OURO</div>
+    </div>
+
+    <!-- HISTÓRICO -->
+    <div class="historico">
+        <div class="titulo-destaque">📚 HISTÓRICO DE TREINAMENTOS</div>
+        <div class="item-hist">✅ 23/07/2026 — Direção Defensiva | Nota: 95%</div>
+        <div class="item-hist">⏳ 24/07/2026 — Atendimento Humano | Em andamento</div>
+    </div>
+
+    <button class="botao">🏅 GERAR CERTIFICADO</button>
+    <button class="botao botao-secundario" onclick="history.back()">VOLTAR</button>
+
+    <div class="rodape">
+        Andrômeda Mobilidade Inteligente ©<br>
+        Projeto idealizado por Francival Alves Farias
+    </div>
+
+<script>
+// SALVA O PROGRESSO NO CELULAR DO USUÁRIO (NÃO PERDE AO FECHAR)
+let progresso = localStorage.getItem('progressoAcademia') || 20; // 20% inicial
+document.getElementById('porcentagem').innerText = progresso + '%';
+document.getElementById('barra').style.width = progresso + '%';
+
+// Exemplo: ao concluir um módulo, aumenta e salva
+// localStorage.setItem('progressoAcademia', '40');
+</script>
+
+</body>
+</html>
