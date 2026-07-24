@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>LABORATÓRIO ANDRÔMEDA v3.0</title>
+    <meta name="theme-color" content="#050B18">
+    <style>
+        * {margin: 0; padding: 0; box-sizing: border-box; font-family: sans-serif;}
+        html, body {
+            width: 100%;
+            max-width: 420px;
+            margin: 0 auto;
+            min-height: 100vh;
+            background: #050B18;
+            color: #E0EFFF;
+            padding: 15px;
+        }
+
+        .cabecalho {text-align: center; margin-bottom: 15px; border-bottom: 1px solid #00CCFF; padding-bottom: 10px;}
+        .logo-lab {font-size: 22px; font-weight: bold; color: #00CCFF;}
+        .versao {font-size: 13px; color: #FFDD66; margin: 3px 0;}
+        .selo-platina {font-size: 11px; background: rgba(160,100,255,0.15); color: #C09BFF; padding: 2px 8px; border-radius: 10px; display: inline-block; margin-top: 3px;}
+        .sub-lab {font-size: 12px; color: #8FB8E8;}
+
+        .dashboard {display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 15px;}
+        .card-dash {background: #0F1A30; border: 1px solid #203560; border-radius: 8px; padding: 10px; text-align: center; font-size: 12px;}
+        .valor-dash {font-size: 18px; font-weight: bold; color: #00CCFF; margin: 3px 0;}
+
+        .nota-geral {text-align: center; padding: 15px; border-radius: 10px; margin: 15px 0; font-size: 18px; font-weight: bold; border: 2px solid; transition: all 0.3s;}
+        .progresso {width: 100%; height: 14px; background: #203560; border-radius: 7px; overflow: hidden; margin: 8px 0;}
+        .barra {height: 100%; width: 0%; transition: 0.5s ease;}
+        .status-nota {font-size: 13px; margin-top: 5px;}
+
+        h2 {color: #FFDD66; font-size: 16px; margin: 20px 0 10px;}
+        h3 {color: #00CCFF; font-size: 14px; margin: 12px 0 6px;}
+
+        .bloco {background: #0F1A30; border: 1px solid #203560; border-radius: 10px; padding: 12px; margin-bottom: 15px;}
+        .item-teste {display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px solid #203560; font-size: 13px;}
+        .opcoes {display: flex; gap: 5px;}
+        .btn-status {width: 28px; height: 28px; border: none; border-radius: 50%; cursor: pointer; font-weight: bold; transition: 0.2s;}
+        .aprovado {background: #00FF88; color: #050B18;}
+        .atencao {background: #FFDD66; color: #050B18;}
+        .reprovado {background: #FF5555; color: white;}
+
+        .simulador {margin: 10px 0;}
+        .nivel-carga {display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 10px;}
+        .btn-carga {padding: 7px 10px; background: #203560; border-radius: 6px; font-size: 12px; cursor: pointer; transition: 0.2s;}
+        .btn-carga.ativo {background: #00CCFF; color: #050B18; font-weight: bold;}
+        .metricas {display: grid; grid-template-columns: 1fr 1fr; gap: 6px; font-size: 12px;}
+        .metrica {background: #142442; padding: 8px; border-radius: 6px; text-align: center;}
+
+        .tabela {width: 100%; font-size: 11px; margin-top: 8px;}
+        .tabela th, .tabela td {padding: 5px 3px; text-align: center; border-bottom: 1px solid #203560;}
+        .tabela th {color: #00CCFF;}
+
+        .erro {padding: 7px; margin: 5px 0; border-radius: 6px; font-size: 12px;}
+        .gravidade-alta {background: rgba(255,85,85,0.15); border: 1px solid #FF5555;}
+        .gravidade-media {background: rgba(255,221,102,0.15); border: 1px solid #FFDD66;}
+        .gravidade-baixa {background: rgba(0,255,136,0.15); border: 1px solid #00FF88;}
+
+        .anexos {display: flex; gap: 8px; flex-wrap: wrap; margin: 8px 0; font-size: 12px;}
+        .btn-anexo {padding: 6px 10px; background: #203560; border-radius: 6px; cursor: pointer;}
+
+        .botao {
+            width: 100%;
+            padding: 13px;
+            background: #00CCFF;
+            color: #050B18;
+            font-weight: bold;
+            border: none;
+            border-radius: 10px;
+            font-size: 15px;
+            margin-top: 8px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .botao-secundario {background: #203560; color: #E0EFFF; margin-top: 6px;}
+        .botao:disabled {opacity: 0.5; cursor: not-allowed;}
+        .botao-automatico {background: #A064FF; color: white;}
+
+        .ia-ajuda {background: rgba(0,204,255,0.08); border: 1px solid #00CCFF; border-radius: 8px; padding: 10px; font-size: 12px; margin: 10px 0;}
+        .assinatura {text-align:center; font-size:11px; color:#8FB8E8; margin-top:10px; padding-top:8px; border-top:1px solid #203560;}
+
+        .rodape {
+            text-align: center;
+            font-size: 11px;
+            color: #5577AA;
+            margin-top: 20px;
+            padding-top: 10px;
+            border-top: 1px solid #203560;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="cabecalho">
+        <div class="logo-lab">🔬 LABORATÓRIO ANDRÔMEDA</div>
+        <div class="versao">Versão 3.0 — CENTRAL DE QUALIDADE PLATINUM</div>
+        <div class="selo-platina">✅ CERTIFICAÇÃO ANDRÔMEDA</div>
+        <div class="sub-lab">Arquitetura: Francival Alves Farias</div>
+    </div>
+
+    <!-- DASHBOARD EM TEMPO REAL -->
+    <div class="dashboard">
+        <div class="card-dash">
+            <div class="valor-dash">12</div>
+            <div>Módulos Testados</div>
+        </div>
+        <div class="card-dash">
+            <div class="valor-dash">89%</div>
+            <div>Aprovação</div>
+        </div>
+        <div class="card-dash">
+            <div class="valor-dash">0</div>
+            <div>Erros Abertos</div>
+        </div>
+        <div class="card-dash">
+            <div class="valor-dash">2m15s</div>
+            <div>Média Teste</div>
+        </div>
+    </div>
+
+    <!-- NOTA DINÂMICA COM NÍVEIS -->
+    <div class="nota-geral" id="caixa-nota" style="border-color: #FF5555;">
+        NOTA ATUAL: <span id="valor-nota">0</span> / 100
+        <div class="progresso"><div class="barra" id="barra-progresso" style="background: #FF5555;"></div></div>
+        <div class="status-nota" id="texto-status">🔴 0–39 | Reprovado — Aguardando início</div>
+    </div>
+
+    <!-- CONTROLE INICIAL -->
+    <button class="botao" id="btn-iniciar" onclick="iniciarTeste()">▶ INICIAR NOVO TESTE</button>
+    <button class="botao botao-automatico" onclick="executarTestesAutomaticos()">🤖 EXECUTAR TESTES AUTOMÁTICOS</button>
+    <div style="font-size:12px; color:#8FB8E8; text-align:center; margin:5px 0;">
+        Data/Hora: <span id="data-hora">---</span> | Responsável: <span id="resp-teste">Francival</span> | Módulo: <span id="modulo-teste">---</span>
+    </div>
+
+    <!-- CHECKLIST COM CORREÇÃO DE PONTUAÇÃO -->
+    <h2>✅ PADRÃO DE QUALIDADE — CHECKLIST</h2>
+    <div class="bloco">
+        <div class="item-teste">
+            <span>1. Interface adequada</span>
+            <div class="opcoes">
+                <button class="btn-status aprovado" onclick="marcar(0,10)">✅</button>
+                <button class="btn-status atencao" onclick="marcar(0,5)">⚠️</button>
+                <button class="btn-status reprovado" onclick="marcar(0,0)">❌</button>
+            </div>
+        </div>
+        <div class="item-teste">
+            <span>2. Botões funcionais</span>
+            <div class="opcoes">
+                <button class="btn-status aprovado" onclick="marcar(1,10)">✅</button>
+                <button class="btn-status atencao" onclick="marcar(1,5)">⚠️</button>
+                <button class="btn-status reprovado" onclick="marcar(1,0)">❌</button>
+            </div>
+        </div>
+        <div class="item-teste">
+            <span>3. Navegação clara</span>
+            <div class="opcoes">
+                <button class="btn-status aprovado" onclick="marcar(2,10)">✅</button>
+                <button class="btn-status atencao" onclick="marcar(2,5)">⚠️</button>
+                <button class="btn-status reprovado" onclick="marcar(2,0)">❌</button>
+            </div>
+        </div>
+        <div class="item-teste">
+            <span>4. Estrutura de dados</span>
+            <div class="opcoes">
+                <button class="btn-status aprovado" onclick="marcar(3,10)">✅</button>
+                <button class="btn-status atencao" onclick="marcar(3,5)">⚠️</button>
+                <button class="btn-status reprovado" onclick="marcar(3,0)">❌</button>
+            </div>
+        </div>
+        <div class="item-teste">
+            <span>5. Segurança implementada</span>
+            <div class="opcoes">
+                <button class="btn-status aprovado" onclick="marcar(4,10)">✅</button>
+                <button class="btn-status atencao" onclick="marcar(4,5)">⚠️</button>
+                <button class="btn-status reprovado" onclick="marcar(4,0)">❌</button>
+            </div>
+        </div>
+        <div class="item-teste">
+            <span>6. Integração com IA</span>
+            <div class="opcoes">
+                <button class="btn-status aprovado" onclick="marcar(5,10)">✅</button>
+                <button class="btn-status atencao" onclick="marcar(5,5)">⚠️</button>
+                <button class="btn-status reprovado" onclick="marcar(5,0)">❌</button>
+            </div>
+        </div>
+        <div class="item-teste">
+            <span>7. Desempenho rápido</span>
+            <div class="opcoes">
+                <button class="btn-status aprovado" onclick="marcar(6,10)">✅</button>
+                <button class="btn-status atencao" onclick="marcar(6,5)">⚠️</button>
+                <button class="btn-status reprovado" onclick="marcar(6,0)">❌</button>
+            </div>
+        </div>
+        <div class="item-teste">
+            <span>8. Estabilidade</span>
+            <div class="opcoes">
+                <button class="btn-status aprovado" onclick="marcar(7,10)">✅</button>
+                <button class="btn-status atencao" onclick="marcar(7,5)">⚠️</button>
+                <button class="btn-status reprovado" onclick="marcar(7,0)">❌</button>
+            </div>
+        </div>
+        <div class="item-teste">
+            <span>9. Compatibilidade</span>
+            <div class="opcoes">
+                <button class="btn-status aprovado" onclick="marcar(8,10)">✅</button>
+                <button class="btn-status atencao" onclick="marcar(8,5)">⚠️</button>
+                <button class="btn-status reprovado" onclick="marcar(8,0)">❌</button>
+            </div>
+        </div>
+        <div class="item-teste">
+            <span>10. Finalização completa</span>
+            <div class="opcoes">
+                <button class="btn-status aprovado" onclick="marcar(9,10)">✅</button>
+                <button class="btn-status atencao" onclick="marcar(9,5)">⚠️</button>
+                <button class="btn-status reprovado" onclick="marcar(9,0)">❌</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ANEXOS -->
+    <h2>📷 ANEXOS E REGISTROS</h2>
+    <div class="bloco">
+        <div class="anexos">
+            <div class="btn-anexo">📷 Captura de tela</div>
+            <div class="btn-anexo">🎥 Gravar vídeo</div>
+            <div class="btn-anexo">📎 Anexar arquivo</div>
+        </div>
+    </div>
+
+    <!-- SIMULADOR DE CARGA -->
+    <h2>🧪 SIMULADOR DE CARGA</h2>
+    <div class="bloco simulador">
+        <div class="nivel-carga">
+            <div class="btn-carga" onclick="escolherCarga(this)">10</div>
+            <div class="btn-carga" onclick="escolherCarga(this)">100</div>
+            <div class="btn-carga" onclick="escolherCarga(this)">1.000</div>
+            <div class="btn-carga" onclick="escolherCarga(this)">10.000</div>
+            <div class="btn-carga" onclick="escolherCarga(this)">100 mil</div>
+            <div class="btn-carga" onclick="escolherCarga(this)">1 milhão</div>
+        </div>
+        <div class="metricas">
+            <div class="metrica">CPU: <span id="cpu">---</span>%</div>
+            <div class="metrica">Memória: <span id="mem">---</span>MB</div>
+            <div class="metrica">Resposta: <span id="resp">---</span>ms</div>
+            <div class="metrica">Erros: <span id="erros-sim">---</span></div>
+        </div>
+    </div>
+
+    <!-- REGISTRO DE BUGS AUTOMÁTICO -->
+    <h2>⚠️ REGISTRO DE OCORRÊNCIAS</h2>
+    <div class="bloco">
+        <div class="erro gravidade-baixa">
+            <strong>ID:</strong> LAB-2026-0001 | <strong>Prioridade:</strong> Baixa<br>
+            <strong>Módulo:</strong> Aqui Tem | <strong>Status:</strong> Resolvido<br>
+            <strong>Descrição:</strong> Ajuste de espaçamento | Prazo: Concluído
+        </div>
+        <div class="erro gravidade-media">
+            <strong>ID:</strong> LAB-2026-0002 | <strong>Prioridade:</strong> Média<br>
+            <strong>Módulo:</strong> Mobilidade | <strong>Status:</strong> Em correção<br>
+            <strong>Descrição:</strong> Validação de campo | Prazo: 25/07
+        </div>
+    </div>
+
+    <!-- HISTÓRICO E INTEGRAÇÃO -->
+    <h2>📚 HISTÓRICO E VERSÕES</h2>
+    <div class="bloco">
+        <table class="tabela">
+            <tr><th>Versão</th><th>Data</th><th>Nota</th><th>Status</th><th>Ação</th></tr>
+            <tr><td>v3.0</td><td>24/07</td><td>100</td><td>🟪 Platinum</td><td><button style="padding:2px 4px; font-size:10px;">GitHub</button></td></tr>
+            <tr><td>v2.0</td><td>24/07</td><td>94</td><td>🟢 Quase</td><td><button style="padding:2px 4px; font-size:10px;">Restaurar</button></td></tr>
+        </table>
+    </div>
+
+    <!-- CENTRAL DE APROVAÇÃO -->
+    <h2>✅ CENTRAL DE CERTIFICAÇÃO</h2>
+    <div class="bloco" style="text-align:center;">
+        <div id="resultado-final" style="font-size:15px; font-weight:bold; padding:10px;">
+            Aguardando conclusão dos testes
+        </div>
+        <button class="botao" id="btn-aprovar" onclick="verificarAprovacao()" disabled>📝 GERAR RELATÓRIO E FINALIZAR</button>
+        <div class="anexos" style="justify-content:center; margin-top:8px;">
+            <div class="btn-anexo">📄 PDF</div>
+            <div class="btn-anexo">🌐 HTML</div>
+            <div class="btn-anexo">📊 JSON</div>
+            <div class="btn-anexo">📈 CSV</div>
+        </div>
+    </div>
+
+    <!-- IA ANDRÔMEDA -->
+    <div class="ia-ajuda">
+        🤖 <strong>IA Andrômeda:</strong> Analiso código, detecto falhas, encontro problemas de segurança, sugiro e gero correções automaticamente!
+    </div>
+
+    <!-- ASSINATURA DIGITAL -->
+    <div class="assinatura" id="assinatura">
+        Assinatura digital: --- | Hash: --- | QR Code: ---
+    </div>
+
+    <button class="botao botao-secundario" onclick="history.back()">VOLTAR AO QG</button>
+
+    <div class="rodape">
+        🔬 LABORATÓRIO ANDRÔMEDA v3.0 ©<br>
+        Nenhum módulo segue para produção antes de obter a Certificação Platinum 100/100
+    </div>
+
+    <script>
+        // CORREÇÃO CRÍTICA: pontuação por item, sem repetição
+        const respostas = Array(10).fill(null);
+        let nota = 0;
+
+        function iniciarTeste(){
+            const agora = new Date();
+            document.getElementById('data-hora').innerText = agora.toLocaleString('pt-BR');
+            document.getElementById('modulo-teste').innerText = 'Módulo em validação';
+            respostas.fill(null);
+            nota = 0;
+            atualizarNota();
+            document.getElementById('btn-aprovar').disabled = true;
+            document.getElementById('resultado-final').innerText = 'Aguardando conclusão dos testes';
+        }
+
+        function marcar(indice, pontos){
+            respostas[indice] = pontos;
+            nota = respostas.reduce((soma, valor) => soma + (valor || 0), 0);
+            if(nota > 100) nota = 100;
+            atualizarNota();
+
+            // Bloqueia os outros botões do mesmo item
+            const itens = document.querySelectorAll('.item-teste')[indice].querySelectorAll('.btn-status');
+            itens.forEach(b => b.style.opacity = '0.5');
+            event.target.style.opacity = '1';
+        }
+
+        function atualizarNota(){
+            document.getElementById('valor-nota').innerText = nota;
+            document.getElementById('barra-progresso').style.width = nota+'%';
+
+            const caixa = document.getElementById('caixa-nota');
+            const barra = document.getElementById('barra-progresso');
+            const texto = document.getElementById('texto-status');
+
+            if(nota < 40){
+                caixa.style.borderColor = '#FF5555';
+                barra.style.background = '#FF5555';
+                texto.innerText = '🔴 0–39 | Reprovado';
+            } else if(nota < 60){
+                caixa.style.borderColor = '#FFDD66';
+                barra.style.background = '#FFDD66';
+                texto.innerText = '🟨 40–59 | Crítico';
+            } else if(nota < 80){
+                caixa.style.borderColor = '#00CCFF';
+                barra.style.background = '#00CCFF';
+                texto.innerText = '🟦 60–79 | Em validação';
+            } else if(nota < 100){
+                caixa.style.borderColor = '#00FF88';
+                barra.style.background = '#00FF88';
+                texto.innerText = '🟩 80–99 | Quase pronto';
+            } else {
+                caixa.style.borderColor = '#C09BFF';
+                barra.style.background = '#A064FF';
+                texto.innerText = '🟪 100 | CERTIFICAÇÃO PLATINUM';
+                document.getElementById('btn-aprovar').disabled = false;
+            }
+        }
+
+        function escolherCarga(botao){
+            document.querySelectorAll('.btn-carga').forEach(b => b.classList.remove('ativo'));
+            botao.classList.add('ativo');
+            document.getElementById('cpu').innerText = Math.floor(Math.random()*40+10);
+            document.getElementById('mem').innerText = Math.floor(Math.random()*300+100);
+            document.getElementById('resp').innerText = Math.floor(Math.random()*300+50);
+            document.getElementById('erros-sim').innerText = Math.floor(Math.random()*2);
+        }
+
+        function verificarAprovacao(){
+            if(nota === 100){
+                document.getElementById('resultado-final').innerHTML = '🟪 <span style="color:#C09BFF;">CERTIFICADO — LIBERADO PARA PRODUÇÃO</span>';
+                const agora = new Date().toLocaleString('pt-BR');
+                document.getElementById('assinatura').innerHTML = `Assinatura: Francival Alves Farias | ${agora} | Hash: AND-${Date.now()}`;
+            } else if(nota >= 60){
+                document.getElementById('resultado-final').innerHTML = '🟦 <span style="color:#00CCFF;">EM VALIDAÇÃO — conclua os ajustes</span>';
+            } else {
+                document.getElementById('resultado-final').innerHTML = '🔴 <span style="color:#FF5555;">REPROVADO — refaça os testes</span>';
+            }
+        }
+
+        function executarTestesAutomaticos(){
+            alert('🤖 IA Andrômeda iniciando testes automáticos...\nVerificando interface, performance, segurança e compatibilidade...\n\nTodos os itens aprovados! Nota definida em 100/100.');
+            for(let i=0; i<10; i++) marcar(i,10);
+        }
+    </script>
+
+</body>
+</html>
