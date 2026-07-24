@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Andrômeda — Aqui Tem</title>
+    <meta name="theme-color" content="#050B18">
+    <style>
+        * {margin: 0; padding: 0; box-sizing: border-box; font-family: sans-serif;}
+        html, body {
+            width: 100%;
+            max-width: 420px;
+            margin: 0 auto;
+            min-height: 100vh;
+            background: #050B18;
+            color: #E0EFFF;
+            padding: 20px 15px;
+        }
+
+        .cabecalho {text-align: center; margin-bottom: 15px;}
+        .logo {font-size: 24px; font-weight: bold; color: #00CCFF; margin-bottom: 5px;}
+        .destaque-nome {font-size: 20px; color: #FFDD66; font-weight: bold; margin: 5px 0;}
+        .sub {font-size: 14px; color: #8FB8E8; line-height: 1.5;}
+
+        .frase-chamada {
+            background: rgba(0, 204, 255, 0.05);
+            border: 1px solid #00CCFF;
+            border-radius: 10px;
+            padding: 12px;
+            text-align: center;
+            font-size: 15px;
+            color: #C0D8FF;
+            margin-bottom: 20px;
+        }
+
+        .barra-busca {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #203560;
+            border-radius: 10px;
+            background: #0F1A30;
+            color: #E0EFFF;
+            font-size: 15px;
+            margin-bottom: 20px;
+        }
+
+        .tipo-anuncio {display: flex; gap: 10px; margin-bottom: 20px;}
+        .botao-tipo {
+            flex: 1;
+            padding: 10px;
+            background: #203560;
+            border: none;
+            border-radius: 8px;
+            color: #E0EFFF;
+            font-size: 14px;
+            cursor: pointer;
+        }
+        .botao-tipo.ativo {background: #00CCFF; color: #050B18; font-weight: bold;}
+
+        .card-item {
+            background: #0F1A30;
+            border: 1px solid #203560;
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+
+        .espaco-foto {
+            width: 100%;
+            height: 120px;
+            background: #203560;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #8FB8E8;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .titulo-item {font-size: 17px; font-weight: bold; color: #00CCFF; margin-bottom: 5px;}
+        .preco {font-size: 16px; font-weight: bold; color: #00FF88; margin-bottom: 8px;}
+        .descricao {font-size: 14px; color: #C0D8FF; line-height: 1.6; margin-bottom: 10px;}
+        .local {font-size: 13px; color: #8FB8E8;}
+
+        .botao {
+            width: 100%;
+            padding: 14px;
+            background: #00CCFF;
+            color: #050B18;
+            font-weight: bold;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            margin-top: 15px;
+            cursor: pointer;
+        }
+        .botao:active {background: #0099CC;}
+        .botao-secundario {background: #203560; color: #E0EFFF; margin-top: 8px;}
+
+        .rodape {
+            text-align: center;
+            font-size: 11px;
+            color: #5577AA;
+            margin-top: 25px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="cabecalho">
+        <div class="logo">✨ ANDRÔMEDA</div>
+        <div class="destaque-nome">AQUI TEM</div>
+        <div class="sub">Compra, venda, troca e serviços — tudo perto de você</div>
+    </div>
+
+    <div class="frase-chamada">
+        "Aqui tem uma pia, aqui tem uma ferramenta, aqui tem o que você precisa!"
+    </div>
+
+    <input type="text" class="barra-busca" placeholder="🔍 O que você procura?">
+
+    <div class="tipo-anuncio">
+        <button class="botao-tipo ativo">Vender</button>
+        <button class="botao-tipo">Comprar</button>
+        <button class="botao-tipo">Trocar</button>
+    </div>
+
+    <!-- EXEMPLO DE ANÚNCIO -->
+    <div class="card-item">
+        <div class="espaco-foto">🖼️ FOTOS DO PRODUTO</div>
+        <div class="titulo-item">Pia de Cozinha em Inox</div>
+        <div class="preco">R$ 180,00</div>
+        <div class="descricao">Nova, nunca usada. Tamanho padrão, com todos os acessórios.</div>
+        <div class="local">📍 Maracanaú — Centro</div>
+    </div>
+
+    <div class="card-item">
+        <div class="espaco-foto">🖼️ FOTOS DO PRODUTO</div>
+        <div class="titulo-item">Ferramentas e Materiais de Construção</div>
+        <div class="preco">A combinar / Troca</div>
+        <div class="descricao">Loja parceira Andrômeda — materiais de qualidade com desconto especial.</div>
+        <div class="local">📍 Maracanaú — Industrial</div>
+    </div>
+
+    <button class="botao">➕ ANUNCIAR AGORA</button>
+    <button class="botao botao-secundario" onclick="history.back()">VOLTAR</button>
+
+    <div class="rodape">
+        Andrômeda Mobilidade Inteligente ©<br>
+        Projeto idealizado por Francival Alves Farias
+    </div>
+
+</body>
+</html>
