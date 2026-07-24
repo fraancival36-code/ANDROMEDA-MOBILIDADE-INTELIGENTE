@@ -1,211 +1,73 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>QG Andrômeda — Serviços</title>
-    <meta name="theme-color" content="#00CCFF">
-    <style>
-        * {margin: 0; padding: 0; box-sizing: border-box; font-family: sans-serif;}
-        html, body {
-            width: 100%;
-            max-width: 420px;
-            margin: 0 auto;
-            min-height: 100vh;
-            background: #050B18;
-            color: #E0EFFF;
-            overflow-x: hidden;
-        }
-
-        /* CABEÇALHO */
-        .cabecalho {
-            text-align: center;
-            padding: 20px 15px 10px;
-            border-bottom: 1px solid #152540;
-        }
-        .logo {font-size: 24px; font-weight: bold; color: #00CCFF; margin-bottom: 5px;}
-        .sub {font-size: 14px; color: #8FB8E8; margin-bottom: 12px;}
-
-        /* BARRA DE PESQUISA */
-        .pesquisa {
-            width: 92%;
-            margin: 0 auto 15px;
-            padding: 12px 15px;
-            background: #0F1A30;
-            border: 1px solid #203560;
-            border-radius: 10px;
-            color: #E0EFFF;
-            font-size: 15px;
-            outline: none;
-        }
-        .pesquisa::placeholder {color: #5577AA;}
-
-        /* BLOCOS */
-        .bloco {
-            padding: 12px 15px;
-            margin-bottom: 8px;
-        }
-        .titulo-bloco {
-            font-size: 17px;
-            font-weight: bold;
-            margin-bottom: 10px;
-            color: #00CCFF;
-            border-left: 3px solid #00CCFF;
-            padding-left: 10px;
-        }
-
-        .grade {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
-        }
-
-        /* BOTÕES FUNCIONAIS COM ANIMAÇÃO */
-        .botao-servico {
-            display: block;
-            background: #0F1A30;
-            border: 1px solid #203560;
-            border-radius: 12px;
-            padding: 14px 8px;
-            text-align: center;
-            font-size: 15px;
-            color: #E0EFFF;
-            text-decoration: none;
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-        .botao-servico:active {
-            transform: scale(0.96);
-            background: #152540;
-            border-color: #00CCFF;
-        }
-        .icone {font-size: 26px; margin-bottom: 4px;}
-
-        .rodape {
-            text-align: center;
-            font-size: 11px;
-            color: #5577AA;
-            padding: 25px 15px;
-            margin-top: 10px;
-        }
-    </style>
-</head>
-<body>
-
-    <div class="cabecalho">
-        <div class="logo">✦ ANDRÔMEDA</div>
-        <div class="sub">Escolha o serviço que você precisa</div>
-    </div>
-
-    <input type="text" class="pesquisa" placeholder="🔍 Pesquise por serviço ou veículo...">
-
-    <!-- 🚗 BLOCO 1: TRANSPORTE DE PESSOAS -->
-    <div class="bloco">
-        <div class="titulo-bloco">🚗 TRANSPORTE DE PESSOAS</div>
-        <div class="grade">
-            <a href="carro-comum.html" class="botao-servico">
-                <div class="icone">🚗</div>
-                Carro Comum
-            </a>
-            <a href="moto-pessoa.html" class="botao-servico">
-                <div class="icone">🛵</div>
-                Moto
-            </a>
-            <a href="veiculo-especial.html" class="botao-servico">
-                <div class="icone">♿</div>
-                Veículo Especial
-            </a>
-            <a href="van-grupos.html" class="botao-servico">
-                <div class="icone">🚐</div>
-                Van para Grupos
-            </a>
-        </div>
-    </div>
-
-    <!-- 🚌 BLOCO 2: EXCURSÕES E VIAGENS -->
-    <div class="bloco">
-        <div class="titulo-bloco">🚌 EXCURSÕES E VIAGENS</div>
-        <div class="grade">
-            <a href="van-passeio.html" class="botao-servico">
-                <div class="icone">🚐</div>
-                Van de Passeio
-            </a>
-            <a href="micro-onibus.html" class="botao-servico">
-                <div class="icone">🚌</div>
-                Micro-Ônibus
-            </a>
-            <a href="onibus-completo.html" class="botao-servico">
-                <div class="icone">🚌</div>
-                Ônibus Completo
-            </a>
-            <a href="garagens.html" class="botao-servico">
-                <div class="icone">🏢</div>
-                Garagens / Empresas
-            </a>
-        </div>
-    </div>
-
-    <!-- 🛵 BLOCO 3: ENTREGAS E PEQUENOS FRETES -->
-    <div class="bloco">
-        <div class="titulo-bloco">📦 ENTREGAS E PEQUENOS FRETES</div>
-        <div class="grade">
-            <a href="moto-entrega.html" class="botao-servico">
-                <div class="icone">🛵</div>
-                Moto Entrega
-            </a>
-            <a href="carro-entrega.html" class="botao-servico">
-                <div class="icone">🚗</div>
-                Carro Entrega
-            </a>
-            <a href="furgao-pequeno.html" class="botao-servico">
-                <div class="icone">🚐</div>
-                Furgão Pequeno
-            </a>
-        </div>
-    </div>
-
-    <!-- 🚚 BLOCO 4: MUDANÇAS E CARGAS -->
-    <div class="bloco">
-        <div class="titulo-bloco">🚚 MUDANÇAS E CARGAS</div>
-        <div class="grade">
-            <a href="furgao-bau.html" class="botao-servico">
-                <div class="icone">🚐</div>
-                Furgão Baú
-            </a>
-            <a href="caminhao-carroceria.html" class="botao-servico">
-                <div class="icone">🚚</div>
-                Caminhão Carroceria
-            </a>
-            <a href="caminhao-bau.html" class="botao-servico">
-                <div class="icone">🚚</div>
-                Caminhão Baú
-            </a>
-            <a href="cacamba.html" class="botao-servico">
-                <div class="icone">🚛</div>
-                Caçamba
-            </a>
-        </div>
-    </div>
-
-    <!-- 🚜 BLOCO 5: SERVIÇOS RURAIS E OBRAS -->
-    <div class="bloco">
-        <div class="titulo-bloco">🚜 SERVIÇOS RURAIS E DE OBRA</div>
-        <div class="grade">
-            <a href="trator.html" class="botao-servico">
-                <div class="icone">🚜</div>
-                Trator
-            </a>
-            <a href="outras-maquinas.html" class="botao-servico">
-                <div class="icone">⚙️</div>
-                Outras Máquinas
-            </a>
-        </div>
-    </div>
-
-    <div class="rodape">
-        Projeto idealizado por Francival Alves Farias<br>
-        Andrômeda Mobilidade Inteligente © Todos os direitos reservados
-    </div>
-
-</body>
-</html>
+ANDROMEDA-MOBILIDADE/
+│
+├── index.html                     ✅ Página principal (RAIZ)
+├── servicos.html                  ✅ Escolha de serviços
+├── cadastro.html                  ✅ Escolha: Cliente / Parceiro / Empresa
+├── login.html                     ✅ Tela de entrada
+├── sobre.html                     ✅ Sobre o projeto
+├── contato.html                   ✅ Fale conosco
+│
+├── 📂 paginas/
+│   ├── painel-cliente.html
+│   ├── painel-parceiro.html
+│   ├── painel-empresa.html
+│   ├── emergencia.html
+│   ├── parceiros-descontos.html
+│   ├── historico.html
+│   ├── perfil.html
+│   ├── configuracoes.html
+│   └── notificacoes.html
+│
+├── 📂 servicos/
+│   ├── carro-comum.html
+│   ├── moto-pessoa.html
+│   ├── veiculo-especial.html
+│   ├── van-grupos.html
+│   ├── van-passeio.html
+│   ├── micro-onibus.html
+│   ├── onibus-completo.html
+│   ├── garagem.html
+│   ├── moto-entrega.html
+│   ├── carro-entrega.html
+│   ├── furgao-pequeno.html
+│   ├── furgao-bau.html
+│   ├── caminhao-carroceria.html
+│   ├── caminhao-bau.html
+│   ├── cacamba.html
+│   ├── trator.html
+│   └── outras-maquinas.html
+│
+├── 📂 documentos/
+│   ├── termos-clientes.html
+│   ├── termos-parceiros.html
+│   ├── termo-motorista.html
+│   ├── termos-e-regras.html
+│   ├── politica-privacidade.html
+│   ├── politica-seguranca.html
+│   ├── modulo-cadastro.html
+│   ├── modulo-investigacao.html
+│   ├── modulo-requisitos.html
+│   ├── lgpd.html
+│   └── codigo-conduta.html
+│
+├── 📂 arquivos/
+│   ├── 📂 css/
+│   │   └── estilo.css
+│   ├── 📂 js/
+│   │   ├── funcoes.js
+│   │   ├── ia.js
+│   │   ├── mapas.js
+│   │   └── notificacoes.js
+│   ├── 📂 imagens/
+│   ├── 📂 icones/
+│   ├── 📂 fontes/
+│   └── 📂 sons/
+│
+├── 📂 api/
+│   ├── firebase.js
+│   ├── autenticacao.js
+│   └── banco.js
+│
+├── manifest.json                  ← Deixa o site instalável no celular como app
+├── service-worker.js              ← Funciona mesmo sem internet
+└── README.md                      ← Explicação completa do projeto
