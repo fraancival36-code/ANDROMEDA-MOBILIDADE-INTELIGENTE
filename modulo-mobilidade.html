@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>MÓDULO 01 — Mobilidade Inteligente</title>
+    <meta name="theme-color" content="#050B18">
+    <style>
+        * {margin: 0; padding: 0; box-sizing: border-box; font-family: sans-serif;}
+        html, body {
+            width: 100%;
+            max-width: 420px;
+            margin: 0 auto;
+            min-height: 100vh;
+            background: #050B18;
+            color: #E0EFFF;
+            padding: 20px 15px 90px;
+        }
+
+        .cabecalho {text-align: center; margin-bottom: 20px; border-bottom: 1px solid #00CCFF; padding-bottom: 10px;}
+        .titulo {font-size: 20px; font-weight: bold; color: #A064FF;}
+        .sub {font-size: 12px; color: #8FB8E8; margin-top: 5px;}
+
+        .bloco {background: #0F1A30; border: 1px solid #203560; border-radius: 10px; padding: 12px; margin-bottom: 12px; font-size: 13px; line-height: 1.6;}
+        .bloco h4 {color: #00CCFF; margin-bottom: 8px; font-size: 15px;}
+        .campo {width: 100%; padding: 10px; margin: 6px 0; background: #050B18; border: 1px solid #203560; border-radius: 8px; color: #E0EFFF; font-size: 14px;}
+        .opcao {padding: 10px; margin: 5px 0; background: #152442; border-radius: 8px; display: flex; justify-content: space-between; align-items: center;}
+        .destaque {color: #FFDD66; font-weight: bold;}
+        .botao {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            background: #00CCFF;
+            color: #050B18;
+            font-weight: bold;
+            border: none;
+            border-radius: 10px;
+            font-size: 15px;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .botao-secundario {background: #203560; color: #E0EFFF;}
+    </style>
+</head>
+<body>
+
+    <div class="cabecalho">
+        <div class="titulo">🚀 MÓDULO 01 — MOBILIDADE INTELIGENTE</div>
+        <div class="sub">Centralizado com a IA Andrômeda</div>
+    </div>
+
+    <div class="bloco">
+        <h4>📍 ORIGEM E DESTINO</h4>
+        <input type="text" id="origem" class="campo" placeholder="Endereço de Saída">
+        <input type="text" id="destino" class="campo" placeholder="Endereço de Chegada">
+        <button class="botao" id="btn-calcular">🔍 CALCULAR ROTA E VALORES</button>
+    </div>
+
+    <div class="bloco">
+        <h4>🗺️ DADOS DA VIAGEM</h4>
+        <p>Distância: <span id="distancia" class="destaque">-- km</span></p>
+        <p>Tempo estimado: <span id="tempo" class="destaque">-- min</span></p>
+        <p>Trânsito: <span id="transito" class="destaque">Verificando...</span></p>
+    </div>
+
+    <div class="bloco">
+        <h4>⚖️ COMPARADOR DE OPÇÕES</h4>
+        <div class="opcao">🏍️ Moto <span id="valor-moto">-- | -- min</span></div>
+        <div class="opcao">🚗 Carro <span id="valor-carro">-- | -- min</span></div>
+        <div class="opcao">🚕 Táxi <span id="valor-taxi">-- | -- min</span></div>
+        <div class="opcao">🚌 Público <span id="valor-onibus">-- | -- min</span></div>
+        <div class="opcao">🚲 Bicicleta <span id="valor-bike">-- min</span></div>
+        <div class="opcao">🚶 Caminhada <span id="valor-pedestre">-- min</span></div>
+    </div>
+
+    <div class="bloco">
+        <h4>🧠 ASSISTENTE IA ANDRÔMEDA</h4>
+        <p>Melhor opção: <span id="melhor-opcao" class="destaque">Aguardando cálculo...</span></p>
+        <p>Horário mais barato: <span id="horario-barato" class="destaque">--</span></p>
+        <p>Gasto mensal estimado: <span id="gasto-mensal" class="destaque">--</span></p>
+        <p>Promoções disponíveis: <span id="promocoes" class="destaque">--</span></p>
+    </div>
+
+    <div class="bloco">
+        <h4>📂 HISTÓRICO E RELATÓRIOS</h4>
+        <button class="botao-secundario" id="btn-viagens" style="margin:4px 0; font-size:13px;">📊 Últimas Viagens</button>
+        <button class="botao-secundario" id="btn-gastos" style="margin:4px 0; font-size:13px;">📈 Gastos por Período</button>
+        <button class="botao-secundario" id="btn-economia" style="margin:4px 0; font-size:13px;">💰 Economia Acumulada</button>
+    </div>
+
+    <a href="index.html" class="botao">🏠 VOLTAR AO QG PRINCIPAL</a>
+
+    <!-- NÚCLEO DA ANDRÔMEDA — MESMO DE SEMPRE -->
+    <script src="andromeda-config.js"></script>
+    <script src="andromeda-core.js"></script>
+    <script src="andromeda-bootstrap.js"></script>
+
+    <script>
+        document.getElementById("btn-calcular").addEventListener("click", calcularRota);
+        function calcularRota(){
+            alert("🔍 Cálculo iniciado — pronto para usar!");
+        }
+        document.getElementById("btn-viagens").addEventListener("click", () => alert("📂 Histórico disponível!"));
+        document.getElementById("btn-gastos").addEventListener("click", () => alert("📈 Relatórios prontos!"));
+        document.getElementById("btn-economia").addEventListener("click", () => alert("💰 Economia calculada!"));
+    </script>
+
+</body>
+</html>
