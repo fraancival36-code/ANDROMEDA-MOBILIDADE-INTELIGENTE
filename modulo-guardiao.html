@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>🛡️ Guardião — Centro de Segurança</title>
+    <meta name="theme-color" content="#050B18">
+    <style>
+        * {margin: 0; padding: 0; box-sizing: border-box; font-family: sans-serif;}
+        html, body {
+            width: 100%;
+            max-width: 420px;
+            aspect-ratio: 9 / 16;
+            margin: 0 auto;
+            background: #050B18;
+            color: #E0EFFF;
+            padding: 18px 12px 80px;
+            overflow-x: hidden;
+        }
+
+        .topo {text-align: center; margin-bottom: 18px; border-bottom: 1px solid #FF7744; padding-bottom: 8px;}
+        .tit {font-size: 19px; font-weight: bold; color: #FF7744;}
+        .sub {font-size: 12px; color: #8FB8E8; margin-top: 4px;}
+
+        .card {background: #0F1A30; border: 1px solid #203560; border-radius: 10px; padding: 10px; margin-bottom: 10px; font-size: 13px; line-height: 1.6;}
+        .card h5 {color: #FF7744; margin-bottom: 6px; font-size: 14px;}
+        .ok {color: #44FF99; font-weight: bold;}
+        .alerta {color: #FFDD66; font-weight: bold;}
+        .erro {color: #FF5555; font-weight: bold;}
+        #logs {max-height: 90px; overflow-y: auto; font-size: 11px; color: #A0C0F0;}
+
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 11px;
+            margin: 6px 0;
+            background: #00CCFF;
+            color: #050B18;
+            font-weight: bold;
+            border: none;
+            border-radius: 10px;
+            font-size: 15px;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .btn-sec {background: #203560; color: #E0EFFF;}
+    </style>
+</head>
+<body>
+
+    <div class="topo">
+        <div class="tit">🛡️ GUARDIÃO</div>
+        <div class="sub">Centro de Segurança e Monitoramento</div>
+    </div>
+
+    <div class="card">
+        <h5>🚨 AMEAÇAS E PROTEÇÃO</h5>
+        <p>Tentativas bloqueadas: <span class="ok" id="bloqueios">0</span></p>
+        <p>IPs monitorados: <span id="ips">0</span></p>
+        <p>Alertas ativos: <span class="alerta" id="alertas">0</span></p>
+    </div>
+
+    <div class="card">
+        <h5>🧩 INTEGRIDADE DO SISTEMA</h5>
+        <p>Núcleo Central: <span class="ok">OK</span></p>
+        <p>Mapas e Rotas: <span class="ok">OK</span></p>
+        <p>IA Andrômeda: <span class="ok">OK</span></p>
+        <p>Banco de Dados: <span class="ok">OK</span></p>
+    </div>
+
+    <div class="card">
+        <h5>📡 MÓDULOS CONECTADOS</h5>
+        <p>✔ Núcleo de Integração</p>
+        <p>✔ Mapas e Rotas</p>
+        <p>✔ Mobilidade</p>
+        <p>✔ Segurança Inteligente</p>
+        <p>✔ Academia Andrômeda</p>
+    </div>
+
+    <div class="card">
+        <h5>📜 REGISTRO DE EVENTOS</h5>
+        <div id="logs">
+            • Sistema iniciado normalmente<br>
+            • Guardião ativo e monitorando
+        </div>
+    </div>
+
+    <button class="btn" id="btn-atualizar">🔄 ATUALIZAR STATUS</button>
+    <button class="btn btn-sec" id="btn-backup">💾 EXECUTAR BACKUP</button>
+    <button class="btn btn-sec" id="btn-logs">📥 EXPORTAR REGISTROS</button>
+    <button class="btn btn-sec" id="btn-cache">🧹 LIMPAR CACHE</button>
+    <a href="index.html" class="btn">🏠 VOLTAR AO QG</a>
+
+    <script src="andromeda-config.js"></script>
+    <script src="andromeda-nucleo-integracao.js"></script>
+    <script src="modulos/guardiao.js"></script>
+
+</body>
+</html>
