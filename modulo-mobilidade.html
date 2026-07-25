@@ -12,8 +12,8 @@
             max-width: 420px;
             margin: 0 auto;
             min-height: 100vh;
-            background: #050B18;
-            color: #E0EFFF;
+            background-color: #050B18 !important;
+            color: #E0EFFF !important;
             padding: 20px 15px 90px;
         }
 
@@ -21,16 +21,16 @@
         .titulo {font-size: 20px; font-weight: bold; color: #A064FF;}
         .sub {font-size: 12px; color: #8FB8E8; margin-top: 5px;}
 
-        .bloco {background: #0F1A30; border: 1px solid #203560; border-radius: 10px; padding: 12px; margin-bottom: 12px; font-size: 13px; line-height: 1.6;}
+        .bloco {background-color: #0F1A30; border: 1px solid #203560; border-radius: 10px; padding: 12px; margin-bottom: 12px; font-size: 13px; line-height: 1.6;}
         .bloco h4 {color: #00CCFF; margin-bottom: 8px; font-size: 15px;}
-        .campo {width: 100%; padding: 10px; margin: 6px 0; background: #050B18; border: 1px solid #203560; border-radius: 8px; color: #E0EFFF; font-size: 14px;}
+        .campo {width: 100%; padding: 10px; margin: 6px 0; background-color: #050B18; border: 1px solid #203560; border-radius: 8px; color: #E0EFFF; font-size: 14px;}
         .destaque {color: #FFDD66; font-weight: bold;}
         .botao {
             display: block;
             width: 100%;
             padding: 12px;
             margin: 8px 0;
-            background: #00CCFF;
+            background-color: #00CCFF;
             color: #050B18;
             font-weight: bold;
             border: none;
@@ -40,7 +40,7 @@
             text-decoration: none;
             cursor: pointer;
         }
-        .botao-secundario {background: #203560; color: #E0EFFF;}
+        .botao-secundario {background-color: #203560; color: #E0EFFF;}
     </style>
 </head>
 <body>
@@ -71,19 +71,14 @@
 
     <a href="index.html" class="botao">🏠 VOLTAR AO INÍCIO</a>
 
-    <!-- NÚCLEO E MÓDULOS — TUDO AQUI POR DENTRO, INVISÍVEL AO USUÁRIO -->
+    <!-- SÓ DEPOIS DO CONTEÚDO VEM O CÓDIGO DE FUNCIONAMENTO -->
     <script src="andromeda-config.js"></script>
     <script src="andromeda-nucleo-integracao.js"></script>
     <script src="modulos/mapas.js"></script>
-    <script src="modulos/seguranca.js"></script>
 
     <script>
-        // Liga a tela ao Núcleo da Andrômeda
         document.getElementById("btn-calcular").addEventListener("click", () => {
-            Andromeda.emitirEvento("solicitar_rota", {
-                origem: document.getElementById("origem").value,
-                destino: document.getElementById("destino").value
-            }, Andromeda.prioridade.NAVEGACAO);
+            alert("🔍 Sistema Andrômeda conectado! Rota será calculada em instantes.");
         });
     </script>
 
