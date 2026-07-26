@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Copiloto Inteligente • Painel do Motorista</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: sans-serif; }
+        body {
+            background-color: #050B18;
+            color: #E0EFFF;
+            max-width: 420px;
+            margin: 0 auto;
+            min-height: 100vh;
+            padding: 15px;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #1E3A5F;
+        }
+        .status-online {
+            color: #2ECC71;
+            font-weight: bold;
+            margin-top: 5px;
+        }
+        .card {
+            background-color: #0B162A;
+            border-radius: 12px;
+            padding: 18px;
+            margin-bottom: 16px;
+            box-shadow: 0 2px 8px rgba(0,150,255,0.15);
+        }
+        .card h3 {
+            color: #66B2FF;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .barra-container {
+            height: 22px;
+            background-color: #152238;
+            border-radius: 11px;
+            overflow: hidden;
+            margin: 10px 0;
+        }
+        .barra-nível {
+            height: 100%;
+            width: 0%; /* Dinâmico */
+            background: linear-gradient(90deg, #2ECC71, #27AE60);
+            border-radius: 11px;
+            transition: width 0.5s ease;
+        }
+        .info-linhas {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 8px;
+            font-size: 15px;
+        }
+        .alerta {
+            background-color: rgba(241, 196, 15, 0.1);
+            border-left: 4px solid #F1C40F;
+            padding: 10px;
+            border-radius: 6px;
+            margin-top: 10px;
+            font-size: 14px;
+        }
+        .grupo-botoes {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .btn {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 14px;
+            cursor: pointer;
+        }
+        .btn-primario { background-color: #007BFF; color: white; }
+        .btn-sucesso { background-color: #2ECC71; color: white; }
+        .resumo-linha {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid #152238;
+        }
+    </style>
+</head>
+<body>
+
+<!-- CABEÇALHO -->
+<div class="header">
+    <h2>🚗 Copiloto Inteligente</h2>
+    <div class="status-online">🟢 IA conectada • Jornada: <span id="tempo-jornada">00h00m</span></div>
+</div>
+
+<!-- 01 BLOCO: EFICIÊNCIA E COMBUSTÍVEL -->
+<div class="card">
+    <h3>⛽ Eficiência e Combustível</h3>
+    <p>Nível Atual</p>
+    <div class="barra-container">
+        <div class="barra-nível" id="barra-combustivel"></div>
+    </div>
+    <div class="info-linhas">
+        <span id="percentual-tanque">0% do tanque</span>
+        <span>📍 Autonomia: <strong id="autonomia-valor">-- km</strong></span>
+    </div>
+    <div class="info-linhas" style="margin-top:15px;">
+        <span>📊 Consumo: <strong id="consumo-medio">-- km/L</strong></span>
+        <span>💰 Custo/km: <strong id="custo-km">R$ 0,00</strong></span>
+    </div>
+    <div class="alerta" id="caixa-alertas">
+        💡 <strong>Sugestão da IA:</strong> Aguardando dados...
+    </div>
+    <div class="grupo-botoes">
+        <button class="btn btn-primario" onclick="abrirModulo('abastecimento')">📝 Abastecer</button>
+        <button class="btn btn-sucesso" onclick="abrirModulo('manutencao')">🔧 Verificar Veículo</button>
+    </div>
+</div>
+
+<!-- 02 BLOCO: GANHOS DA JORNADA -->
+<div class="card">
+    <h3>💰 Ganhos da Jornada</h3>
+    <div class="resumo-linha">
+        <span>Total Bruto</span>
+        <strong id="ganho-bruto">R$ 0,00</strong>
+    </div>
+    <div class="resumo-linha">
+        <span>Lucro Líquido</span>
+        <strong style="color:#2ECC71;" id="ganho-liquido">R$ 0,00</strong>
+    </div>
+    <div class="resumo-linha">
+        <span>Fundo de Ajuda</span>
+        <strong id="fundo-ajuda">R$ 0,00</strong>
+    </div>
+</div>
+
+<!-- 03 BLOCO: SEGURANÇA E ROTAS -->
+<div class="card">
+    <h3>🚦 Avaliação de Segurança</h3>
+    <p id="status-seguranca">🤖 Assistente IA: Inicializando monitoramento...</p>
+    <p style="font-size:14px; color:#A0C8E8; margin-top:12px;">🔧 Próxima revisão: <span id="proxima-revisao">-- km</span></p>
+</div>
+
+<script>
+// ==============================================
+// 🧠 CAMADA DE LÓGICA LOCAL (MÓDULO COPILOTO)
+// ==============================================
+
+// Objeto central de dados (aqui receberemos do sensor/API)
+let estadoVeiculo = {
+    percentualTanque: 0,
+    autonomia: 0,
+    consumoMedio: 0,
+    custoKm: 0,
+    kmRodados: 0
+};
+
+// 1. ATUALIZA INTERFACE COM DADOS REAIS
+function atualizarPainel(dadosNovos) {
+    // Mescla dados novos com os atuais
+    Object.assign(estadoVeiculo, dadosNovos);
+
+    // Atualiza barra visual
+    const barra = document.getElementById('barra-combustivel');
+    barra.style.width = estadoVeiculo.percentualTanque + '%';
+    
+    // Muda cor conforme nível
+    if (estadoVeiculo.percentualTanque < 25) {
+        barra.style.background = "#E74C3C";
+        document.getElementById('caixa-alertas').innerHTML = "⚠️ <strong>Alerta:</strong> Nível baixo! Abasteça em breve.";
+    } else if (estadoVeiculo.percentualTanque < 40) {
+        barra.style.background = "#F39C12";
+        document.getElementById('caixa-alertas').innerHTML = "⚡ <strong>Atenção:</strong> Reserva moderada.";
+    } else {
+        barra.style.background = "linear-gradient(90deg, #2ECC71, #27AE60)";
+        document.getElementById('caixa-alertas').innerHTML = "💡 <strong>Sugestão da IA:</strong> Consumo está estável. Excelente desempenho.";
+    }
+
+    // Atualiza textos
+    document.getElementById('percentual-tanque').textContent = estadoVeiculo.percentualTanque + "% do tanque";
+    document.getElementById('autonomia-valor').textContent = estadoVeiculo.autonomia + " km";
+    document.getElementById('consumo-medio').textContent = estadoVeiculo.consumoMedio.toFixed(2) + " km/L";
+    document.getElementById('custo-km').textContent = "R$ " + estadoVeiculo.custoKm.toFixed(2);
+    
+    // Verifica segurança de rota
+    avaliarSeguranca();
+}
+
+// 2. LÓGICA DE SEGURANÇA INTERNA
+function avaliarSeguranca() {
+    if (estadoVeiculo.autonomia > 50) {
+        document.getElementById('status-seguranca').innerHTML = "✅ Autonomia segura para múltiplas corridas.";
+    } else {
+        document.getElementById('status-seguranca').innerHTML = "🟡 Autonomia limitada. Planeje abastecer após a corrida atual.";
+    }
+}
+
+// ==============================================
+// 🔌 CAMADA DE COMUNICAÇÃO COM ANDRÔMEDA (API)
+// ==============================================
+const API_ANDROMEDA = {
+    // Envia dados agregados para o QG
+    async enviarDados(dados) {
+        console.log("📤 Enviando para Núcleo Andrômeda:", dados);
+        // Futuro: fetch('/api/relatorio', { method: 'POST', body: JSON.stringify(dados) });
+    },
+
+    // Recebe configurações/dicas globais
+    async receberAtualizacoes() {
+        console.log("📥 Sincronizado com Andrômeda");
+    }
+};
+
+// Exemplo de uso: ao abastecer, calcula e envia
+function registrarAbastecimento(litros, valorTotal, kmAtual) {
+    // Lógica local
+    let custo = valorTotal / litros;
+    let consumo = (kmAtual - estadoVeiculo.kmRodados) / litros;
+    
+    // Atualiza estado
+    estadoVeiculo.custoKm = custo / estadoVeiculo.consumoMedio;
+    estadoVeiculo.consumoMedio = consumo;
+    estadoVeiculo.kmRodados = kmAtual;
+
+    // Envia para o QG (dados anonimizados/agregados)
+    API_ANDROMEDA.enviarDados({
+        tipo: "abastecimento",
+        consumoMedio: consumo,
+        custoMedio: custo
+    });
+
+    atualizarPainel(estadoVeiculo);
+}
+
+// Navegação interna entre módulos
+function abrirModulo(nomeModulo) {
+    console.log("🧭 Navegando para:", nomeModulo);
+    // Aqui liga com as outras páginas: manutencao.html, financeiro.html, etc.
+    window.location.href = nomeModulo + ".html";
+}
+
+// ==============================================
+// 🚀 INICIALIZAÇÃO DO SISTEMA
+// ==============================================
+window.addEventListener('load', () => {
+    // Simulação de dados vindos do sistema/sensores
+    atualizarPainel({
+        percentualTanque: 72,
+        autonomia: 210,
+        consumoMedio: 11.8,
+        custoKm: 0.52
+    });
+
+    // Sincroniza com a IA central
+    API_ANDROMEDA.receberAtualizacoes();
+});
+</script>
+
+</body>
+</html>
